@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Pharmapp</string>
-    <String name="testSebastianBranch">testSebastian</String>
+    <string name="test">HelloPapiJuancho</string>
 </resources>
