@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Pharmapp</string>
-    <String name="RamaRobada">testSebastian</String>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="choseMed">Choose medicine</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut \n
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi  \n
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore  \n
+        mollit anim id est laborum.</string>
+    <string name="all">All</string>
+    <string name="vitamins">Vitamins</string>
+    <string name="pills">Pills</string>
+    <string name="medication_name">Medication Name</string>
+    <string name="tag">tag</string>
+    <string name="medication_name">Medication Name</string>
+    <string name="brief_description">Brief description</string>
+    <string name="info">Info</string>
+    <string name="time">Time</string>
+    <string name="edit">Edit</string>
 </resources>
