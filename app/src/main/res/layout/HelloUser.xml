@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@drawable/background1">
+
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorButtnBlue"
+        android:textColor="@color/colorStringWhite" />
+
+    <TextView
+        android:id="@+id/medListTitle"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nextBtn"
+        android:layout_marginVertical="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/hello"
+        android:textColor="@color/colorStringWhite"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nextBtn"
+        android:layout_marginVertical="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/userName"
+        android:textColor="@color/colorStringWhite"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/gotSickBtn"
+        android:layout_width="169dp"
+        android:layout_height="115dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="226dp"
+        android:background="@drawable/buttons_rounded"
+        android:gravity="left|bottom"
+        android:text="@string/gotSick"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/greyView"
+        android:layout_width="127dp"
+        android:layout_height="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="240dp"
+        android:alpha="0.7"
+        android:background="@drawable/searchview_rounded"
+        android:backgroundTint="#DADADA"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:translationZ="-1dp" />
+
+    <Button
+        android:id="@+id/addDrugsBtn"
+        android:layout_width="160dp"
+        android:layout_height="115dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/buttons_rounded"
+        android:gravity="left|bottom"
+        android:text="@string/addDrugs"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/greyView2"
+        android:layout_width="127dp"
+        android:layout_height="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="73dp"
+        android:alpha="0.7"
+        android:background="@drawable/searchview_rounded"
+        android:backgroundTint="#DADADA"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:translationZ="-1dp" />
+
+    <Button
+        android:id="@+id/redRing"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="305dp"
+        android:alpha="0.2"
+        android:background="@drawable/searchview_rounded"
+        android:backgroundTint="#FF0000"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:translationZ="3dp" />
+
+    <Button
+        android:id="@+id/redRing2"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="315dp"
+        android:alpha="0.2"
+        android:background="@drawable/searchview_rounded"
+        android:backgroundTint="#FF0000"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:translationZ="3dp" />
+
+    <Button
+    android:id="@+id/blueRing"
+    android:layout_width="58dp"
+    android:layout_height="58dp"
+    android:layout_alignParentEnd="true"
+    android:layout_marginTop="190dp"
+    android:layout_marginEnd="139dp"
+    android:alpha="0.2"
+    android:background="@drawable/searchview_rounded"
+    android:backgroundTint="#0040FF"
+    android:textAllCaps="false"
+    android:textSize="20sp"
+    android:translationZ="3dp" />
+
+    <Button
+        android:id="@+id/blueRing2"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="149dp"
+        android:alpha="0.2"
+        android:background="@drawable/searchview_rounded"
+        android:backgroundTint="#0040FF"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:translationZ="3dp" />
+
+    <LinearLayout
+        android:id="@+id/filterBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/medListTitle"
+        android:layout_marginVertical="175dp">
+
+        <Button
+            android:id="@+id/allMedsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all"
+            android:layout_marginTop="50dp"
+            android:textAllCaps="false"
+            android:background="@drawable/buttons_rounded"/>
+
+        <Button
+            android:id="@+id/vitaminsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vitamins"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="45dp"
+            android:textAllCaps="false"
+            android:background="@drawable/buttons_rounded"/>
+
+        <Button
+            android:id="@+id/pillsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textAllCaps="false"
+            android:text="@string/pills"
+            android:background="@drawable/buttons_rounded"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/country_content_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:layout_below="@id/filterBtns">
+
+
+
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"
+            android:background="@drawable/searchview_rounded"
+            android:queryBackground="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/country_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
