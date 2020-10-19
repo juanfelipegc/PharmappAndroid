@@ -5,23 +5,28 @@
 android:layout_height="wrap_content"
 android:orientation="vertical"
 android:layout_width="match_parent"
-xmlns:android="http://schemas.android.com/apk/res/android">
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools">
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@drawable/round_item_recyclerview"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    android:padding="10dp">
+
     <ImageView
+        android:id="@+id/ivItemMedicationimage"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="10dp"
-        android:background="@drawable/round_picture_recyclerview"/>
+        android:background="@drawable/round_picture_recyclerview"
+        tools:src="@tools:sample/avatars"/>
 
 
     <TextView
-        android:id="@+id/tvItemScheduleConferenceName"
+        android:id="@+id/tvItemMedicationName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -33,7 +38,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:id="@+id/tvItemScheduleTag"
+        android:id="@+id/tvItemMedicationTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
@@ -43,10 +48,6 @@ xmlns:android="http://schemas.android.com/apk/res/android">
         android:layout_marginTop="20dp"
         android:text="@string/tag"
         android:layout_marginStart="50dp"/>
-
-
-
-
 
 
 </LinearLayout>

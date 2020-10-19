@@ -1,0 +1,76 @@
+package com.moviles.pharmapp
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import com.moviles.pharmapp.model.Medication
+import com.moviles.pharmapp.viewmodel.MedicineViewModel
+import kotlinx.android.synthetic.main.fragment_medication.*
+
+class MedicationFragment: Fragment(), MedicationListener {
+
+    private lateinit var medicineAdpater: MedicationAdapter
+    private lateinit var viewModel: MedicineViewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_medication, container, false)
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
+        viewModel.refresh()
+
+        medicineAdpater = MedicationAdapter(this)
+
+        rvMedicine.apply {
+            layoutManager = GridLayoutManager(context, 1)
+            adapter = medicineAdpater
+        }
+
+        observeViewModel()
+    }
+
+    fun observeViewModel() {
+
+
+        viewModel.listMedicine.observe(this, Observer<List<Medication>> { medicine ->
+            medicine.let {
+
+                medicineAdpater.updateData(medicine)
+            }
+
+
+        })
+
+
+    }
+
+    override fun onMedicineClicked(medication: Medication, position: Int) {
+
+
+        val bundle = bundleOf("medicine" to medication)
+        findNavController().navigate(R.id.MedicineDetailFragmentDialog, bundle)
+
+    }
+
+
+
+
+
+}

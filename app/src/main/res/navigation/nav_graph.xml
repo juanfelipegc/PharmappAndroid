@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_test">
 
+    <fragment
+        android:id="@+id/fragment_test"
+        android:name="com.moviles.pharmapp.TestFragment"
+        android:label="Test"
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/action_medication_fragment_to_MedicationFragment"
+            app:destination="@id/medication_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medication_fragment"
+        android:name="com.moviles.pharmapp.MedicationFragment"
+        android:label="fragment_medication"
+        tools:layout="@layout/fragment_medication" >
+        <action
+            android:id="@+id/action_medication_fragment_to_MedicineDetailFragmentDialog"
+            app:destination="@id/MedicineDetailFragmentDialog" />
+    </fragment>
+
+
+    <dialog
+        android:id="@+id/MedicineDetailFragmentDialog"
+        android:name="com.moviles.pharmapp.MedicationDetailDialogFragment"
+        android:label="MedicationDetailFragmentDialog"
+        tools:layout="@layout/fragment_medication_detail_dialog"/>
 </navigation>
