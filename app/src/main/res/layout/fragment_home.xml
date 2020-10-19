@@ -48,7 +48,7 @@
 
     <Button
         android:id="@+id/gotSickBtn"
-        android:layout_width="169dp"
+        android:layout_width="140dp"
         android:layout_height="115dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="180dp"
@@ -75,7 +75,7 @@
 
     <Button
         android:id="@+id/addDrugsBtn"
-        android:layout_width="160dp"
+        android:layout_width="140dp"
         android:layout_height="115dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="180dp"
@@ -200,7 +200,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="-150dp"
-        tools:context=".MainActivity"
+        tools:context=".view.ui.activities.MainActivity"
         android:layout_below="@id/filterBtns">
 
         <LinearLayout

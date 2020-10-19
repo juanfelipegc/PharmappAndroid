@@ -25,4 +25,5 @@
     <string name="info">Info</string>
     <string name="time">Time</string>
     <string name="edit">Edit</string>
+    <string name="medication_name">Medication name</string>
 </resources>

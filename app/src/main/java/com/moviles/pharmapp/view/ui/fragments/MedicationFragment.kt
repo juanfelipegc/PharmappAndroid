@@ -1,6 +1,5 @@
-package com.moviles.pharmapp
+package com.moviles.pharmapp.view.ui.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +11,15 @@ import androidx.lifecycle.ViewModelProvider
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.moviles.pharmapp.R
 import com.moviles.pharmapp.model.Medication
+import com.moviles.pharmapp.view.adapter.MedicationAdapter
+import com.moviles.pharmapp.view.adapter.MedicationListener
 import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import kotlinx.android.synthetic.main.fragment_medication.*
 
-class MedicationFragment: Fragment(), MedicationListener {
+class MedicationFragment: Fragment(),
+    MedicationListener {
 
     private lateinit var medicineAdpater: MedicationAdapter
     private lateinit var viewModel: MedicineViewModel
@@ -36,7 +39,8 @@ class MedicationFragment: Fragment(), MedicationListener {
         viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
         viewModel.refresh()
 
-        medicineAdpater = MedicationAdapter(this)
+        medicineAdpater =
+            MedicationAdapter(this)
 
         rvMedicine.apply {
             layoutManager = GridLayoutManager(context, 1)

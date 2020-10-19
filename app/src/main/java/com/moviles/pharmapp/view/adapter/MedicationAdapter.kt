@@ -1,4 +1,4 @@
-package com.moviles.pharmapp
+package com.moviles.pharmapp.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import com.moviles.pharmapp.model.Medication
 
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import kotlinx.android.synthetic.main.item_medication.view.*
+import com.moviles.pharmapp.R
 
 class MedicationAdapter (val medicationListener: MedicationListener): RecyclerView.Adapter<MedicationAdapter.ViewHolder>() {
 
@@ -34,7 +34,14 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MedicationAdapter.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_medication, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_medication,
+                parent,
+                false
+            )
+        )
 
     override fun getItemCount() = listMedicine.size
 
