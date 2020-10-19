@@ -38,7 +38,7 @@ class MedicineViewModel: ViewModel() {
 
 
 
-        var listm: List<Medication> = mutableListOf(medication1, medication2)
+        var listm: List<Medication> = mutableListOf(medication1)
         listMedicine.postValue(listm)
 
         Log.i("datos",listm.size.toString())
