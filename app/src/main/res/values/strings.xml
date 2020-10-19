@@ -3,6 +3,16 @@
     <string name="cancel">Cancel</string>
     <string name="next">Next</string>
     <string name="choseMed">Choose medicine</string>
+    <string name="hello">Hello,</string>
+    <string name="userName">Amanda</string>
+    <string name="gotSick">Got Sick?</string>
+    <string name="addDrugs">Add drugs</string>
+    <string name="vitamin1">Omega 3</string>
+    <string name="drug1">Advil</string>
+    <string name="time1">8:45</string>
+    <string name="time2">12:30</string>
+    <string name="date">Today</string>
+    <string name="date2">23 May</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut \n
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi  \n
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore  \n
@@ -10,10 +20,10 @@
     <string name="all">All</string>
     <string name="vitamins">Vitamins</string>
     <string name="pills">Pills</string>
-    <string name="medication_name">Medication Name</string>
     <string name="tag">tag</string>
     <string name="brief_description">Brief description</string>
     <string name="info">Info</string>
     <string name="time">Time</string>
     <string name="edit">Edit</string>
+    <string name="medication_name">Medication name</string>
 </resources>

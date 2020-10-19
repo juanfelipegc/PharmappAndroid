@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_test">
+    app:startDestination="@id/home_fragment">
 
     <fragment
-        android:id="@+id/fragment_test"
-        android:name="com.moviles.pharmapp.TestFragment"
+        android:id="@+id/home_fragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.HomeFragment"
         android:label="Test"
-        tools:layout="@layout/fragment_test" >
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_medication_fragment_to_MedicationFragment"
             app:destination="@id/medication_fragment" />
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/medication_fragment"
-        android:name="com.moviles.pharmapp.MedicationFragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationFragment"
         android:label="fragment_medication"
         tools:layout="@layout/fragment_medication" >
         <action
@@ -28,7 +28,7 @@
 
     <dialog
         android:id="@+id/MedicineDetailFragmentDialog"
-        android:name="com.moviles.pharmapp.MedicationDetailDialogFragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationDetailDialogFragment"
         android:label="MedicationDetailFragmentDialog"
         tools:layout="@layout/fragment_medication_detail_dialog"/>
 </navigation>
