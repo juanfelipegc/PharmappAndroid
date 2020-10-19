@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/fragment_test"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
+    <item
+        android:id="@+id/medication_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_pills"
+        android:title="pills"/>
+<!--    <item-->
+<!--        android:id="@+id/c"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/calendar_icon"-->
+<!--        android:title="calendar"/>-->
+
+</menu>
