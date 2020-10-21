@@ -23,7 +23,17 @@
         <action
             android:id="@+id/action_medication_fragment_to_MedicineDetailFragmentDialog"
             app:destination="@id/MedicineDetailFragmentDialog" />
+        <action
+            android:id="@+id/action_medication_fragment_to_scanner_activity"
+            app:destination="@id/scanner_activity" />
     </fragment>
+
+
+    <activity
+        android:id="@+id/scanner_activity"
+        android:name="com.moviles.pharmapp.view.ui.activities.ScannerActivity"
+        android:label="Activity_scanner"
+        tools:layout="@layout/activity_scanner"/>
 
 
     <dialog
