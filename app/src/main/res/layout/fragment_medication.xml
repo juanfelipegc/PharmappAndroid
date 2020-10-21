@@ -58,7 +58,7 @@
             android:id="@+id/allMedsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/all"
+            android:text="Add"
             android:background="@drawable/buttons_rounded"/>
 
         <Button
