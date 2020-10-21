@@ -22,8 +22,6 @@ import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.face.FaceDetection
-import com.google.mlkit.vision.face.FaceDetectorOptions
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -211,12 +209,6 @@ class ScannerActivity : AppCompatActivity() {
 
     inner class ImageProcessor : ImageAnalysis.Analyzer {
 
-        val realTimeOpts = FaceDetectorOptions.Builder()
-            .setClassificationMode(FaceDetectorOptions.CLASSIFICATION_MODE_ALL)
-            .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
-            .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
-            .build()
-
 
 
         val options = BarcodeScannerOptions.Builder()
@@ -242,7 +234,6 @@ class ScannerActivity : AppCompatActivity() {
                 // Pass image to an ML Kit Vision API
                 // ...
 
-                val detector = FaceDetection.getClient(realTimeOpts)
 
 
                 val scanner = BarcodeScanning.getClient()
