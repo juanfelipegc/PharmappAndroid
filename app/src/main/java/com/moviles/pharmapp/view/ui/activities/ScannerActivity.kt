@@ -2,14 +2,10 @@ package com.moviles.pharmapp.view.ui.activities
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.media.MediaScannerConnection
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -31,7 +27,6 @@ import com.moviles.pharmapp.R
 import kotlinx.android.synthetic.main.activity_scanner.*
 
 
-typealias LumaListener = (luma: Double) -> Unit
 
 class ScannerActivity : AppCompatActivity() {
     private var preview: Preview? = null
