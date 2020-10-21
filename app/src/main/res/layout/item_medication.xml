@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_width="match_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/round_item_recyclerview"
+    android:layout_margin="20dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivItemMedicationimage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/round_picture_recyclerview"
+        tools:src="@tools:sample/avatars"/>
+
+
+    <TextView
+        android:id="@+id/tvItemMedicationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="@string/medication_name"
+        android:textColor="@color/colorStringBlack"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tvItemMedicationTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:ellipsize="end"
+        android:lines="1"
+        android:background="@drawable/shape_topic"
+        android:layout_marginTop="20dp"
+        android:text="@string/tag"
+        android:layout_marginStart="50dp"/>
+
+
+</LinearLayout>
+
+</LinearLayout>
