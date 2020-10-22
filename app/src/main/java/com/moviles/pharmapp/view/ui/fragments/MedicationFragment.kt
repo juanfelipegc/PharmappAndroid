@@ -51,7 +51,7 @@ class MedicationFragment: Fragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MedicineViewModel(context!!)::class.java)
+        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
         viewModel.refresh()
 
         medicineAdpater =

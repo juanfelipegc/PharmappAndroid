@@ -8,9 +8,9 @@ import com.moviles.pharmapp.viewmodel.BaseViewModel
 import java.util.*
 import kotlin.collections.LinkedHashMap
 
-class RepoMedicines(val context: Context) {
+class RepoMedicines() {
 
-    val firebase = FirebaseDB(context)
+    val firebase = FirebaseDB()
 
     fun getAllMedicines(listener: BaseViewModel, label: String) {
         val collection: MutableMap<String, String> = LinkedHashMap()

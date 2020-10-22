@@ -4,23 +4,22 @@ import android.content.Context
 import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.FirebaseApp
-import com.google.firebase.firestore.*
-import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.ListenerRegistration
 import com.moviles.pharmapp.model.BaseModel
 import com.moviles.pharmapp.utilities.Constants
 import com.moviles.pharmapp.viewmodel.BaseViewModel
 import java.util.*
 import kotlin.reflect.KClass
 
-class FirebaseDB(context: Context) : BaseProxy(context) {
-    private val firebase: FirebaseFirestore
+class FirebaseDB {
+    private val firebase: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val documents = ArrayList<String>()
     private val settings = FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).build()
     private var lr: ListenerRegistration? = null
 
     init {
-        firebase = FirebaseFirestore.getInstance()
         firebase.firestoreSettings = settings
     }
 
@@ -31,14 +30,10 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         etiqueta: String?,
         clase: Any?
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaDocumento) {
             ruta += "$key/"
-            if (value == null) break
+            if (value == "") break
             ruta += "$value/"
         }
         val rFinal = ruta.substring(0, ruta.length - 1)
@@ -55,14 +50,10 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         etiqueta: String,
         clase: Any
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaDocumento) {
             ruta += "$key/"
-            if (value == null) break
+            if (value == "") break
             ruta += "$value/"
         }
         val rFinal = ruta.substring(0, ruta.length - 1)
@@ -72,7 +63,6 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
                 val result = documentReference.id
                 Log.e("ID", documentReference.id)
                 listener.exito(etiqueta, result)
-                return@OnSuccessListener
             }
             listener.exito(etiqueta, clase)
         }).addOnFailureListener { listener.falla(etiqueta) }
@@ -85,14 +75,10 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         etiqueta: String?,
         clase: Any?
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaDocumento) {
             ruta += "$key/"
-            if (value == null) break
+            if (value == "") break
             ruta += "$value/"
         }
         val rFinal = ruta.substring(0, ruta.length - 1)
@@ -108,14 +94,10 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         etiqueta: String?,
         clase: Any?
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaDocumento) {
             ruta += "$key/"
-            if (value == null) break
+            if (value == "") break
             ruta += "$value/"
         }
         val rFinal = ruta.substring(0, ruta.length - 1)
@@ -131,21 +113,16 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         etiqueta: String?,
         clase: KClass<T>
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaDocumento) {
             ruta += "$key/"
-            if (value == null) break
+            if (value == "") break
             ruta += "$value/"
         }
         val rFinal = ruta.substring(0, ruta.length - 1)
         Log.e("URl", rFinal)
-        val listaDocumento =
-            firebase.document(rFinal)
-        lr = listaDocumento.addSnapshotListener(EventListener { documentSnapshot, e ->
+        val listaDocumento = firebase.document(rFinal)
+        lr = listaDocumento.addSnapshotListener { documentSnapshot, e ->
             if (e != null) listener.falla(Constants.Errors.FAIL_LISTENER)
             if (documentSnapshot != null && documentSnapshot.exists()) {
                 val result = documentSnapshot.toObject(clase.java)
@@ -153,7 +130,7 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
                 Log.e("ID", documentSnapshot.id)
                 listener.actualizacion(etiqueta, result)
             }
-        })
+        }
         listaDocumento.get().addOnCompleteListener(OnCompleteListener { task ->
             if (task.isSuccessful) {
                 val document = task.result
@@ -173,10 +150,6 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         etiqueta: String,
         clase: KClass<T>
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaColeccion) {
             ruta += "$key/"
@@ -223,10 +196,6 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
         campo: String?,
         valor: Any?
     ) {
-        if (!checkInternetConnection()) {
-            listener.falla(Constants.Errors.NO_INTERNET)
-            return
-        }
         var ruta = ""
         for ((key, value) in rutaColeccion) {
             ruta += "$key/"
@@ -262,7 +231,6 @@ class FirebaseDB(context: Context) : BaseProxy(context) {
                         count++
                     }
                     listener.exito(etiqueta, list)
-                    return@OnCompleteListener
                 }
                 listener.falla(etiqueta)
                 Log.e("Fallo", "ConsultarColeccion")
