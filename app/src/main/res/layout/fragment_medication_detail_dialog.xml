@@ -7,6 +7,7 @@
     android:background="@drawable/background2">
 
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,7 +29,7 @@
                         android:layout_height="match_parent"
                         android:alpha="0.3"/>
                     <ImageView
-                        android:id="@+id/ivPictureSpeaker"
+                        android:id="@+id/ivPictureMedicine"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@mipmap/ic_launcher"
@@ -88,6 +89,7 @@
                             android:text="@string/tag"/>
 
                         <TextView
+                            android:id="@+id/tvIdMedicine"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/info"

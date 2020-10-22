@@ -24,21 +24,21 @@ class MedicineViewModel: ViewModel() {
         var medication1 = Medication()
 
         medication1.id = "1"
-        medication1.name = "x"
-        medication1.tag = "sd"
+        medication1.name = "Dolex"
+        medication1.tag = "Pill"
         medication1.image = ""
 
 
         var medication2 = Medication()
 
         medication2.id = "6"
-        medication2.name = "YYYY"
-        medication2.tag = "gfdhnn"
+        medication2.name = "Advil"
+        medication2.tag = "Pill"
         medication2.image = ""
 
 
 
-        var listm: List<Medication> = mutableListOf(medication1)
+        var listm: List<Medication> = mutableListOf(medication1,medication2)
         listMedicine.postValue(listm)
 
         Log.i("datos",listm.size.toString())
