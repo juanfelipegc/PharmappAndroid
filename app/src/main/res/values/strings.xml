@@ -19,10 +19,12 @@
         mollit anim id est laborum.</string>
     <string name="all">All</string>
     <string name="vitamins">Vitamins</string>
+    <string name="med_name">Medication name</string>
     <string name="pills">Pills</string>
     <string name="tag">tag</string>
     <string name="brief_description">Brief description</string>
     <string name="info">Info</string>
     <string name="time">Time</string>
     <string name="edit">Edit</string>
+    <string name="medication_name">Medication name</string>
 </resources>

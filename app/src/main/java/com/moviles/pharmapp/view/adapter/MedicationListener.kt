@@ -1,4 +1,4 @@
-package com.moviles.pharmapp
+package com.moviles.pharmapp.view.adapter
 
 import com.moviles.pharmapp.model.Medication
 
