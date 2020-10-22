@@ -45,19 +45,13 @@ class MedicationFragment: Fragment(),
 
             findNavController().navigate(R.id.scanner_activity)
         }
-
-
         return view
-
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
-        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MedicineViewModel(context!!)::class.java)
         viewModel.refresh()
 
         medicineAdpater =
@@ -72,27 +66,16 @@ class MedicationFragment: Fragment(),
     }
 
     fun observeViewModel() {
-
-
         viewModel.listMedicine.observe(viewLifecycleOwner, Observer<List<Medication>> { medicine ->
             medicine.let {
-
                 medicineAdpater.updateData(medicine)
             }
-
-
         })
-
-
     }
 
     override fun onMedicineClicked(medication: Medication, position: Int) {
-
-
         val bundle = bundleOf("medicine" to medication)
         findNavController().navigate(R.id.MedicineDetailFragmentDialog, bundle)
-
-
     }
 
 
