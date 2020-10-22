@@ -14,6 +14,10 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
@@ -24,11 +28,14 @@ import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import com.moviles.pharmapp.R
+import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import kotlinx.android.synthetic.main.activity_scanner.*
 
 
 
 class ScannerActivity : AppCompatActivity() {
+
+
     private var preview: Preview? = null
     private var imageCapture: ImageCapture? = null
     private var tvAction: TextView? = null
@@ -39,6 +46,9 @@ class ScannerActivity : AppCompatActivity() {
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
+
+
+    private lateinit var viewModel: MedicineViewModel
 
 
 
@@ -68,6 +78,7 @@ class ScannerActivity : AppCompatActivity() {
 
 
         tvAction = findViewById<TextView>(R.id.tvCode)
+        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
 
 
         // Request camera permissions
@@ -258,6 +269,11 @@ class ScannerActivity : AppCompatActivity() {
                                 tvCode.text = code
                             }
 
+                            if (!code.isEmpty()) {
+
+                                viewModel.addMedicine(code)
+                                finish()
+                            }
                             when (valueType) {
 
                                 Barcode.FORMAT_ALL_FORMATS -> {

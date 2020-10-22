@@ -8,8 +8,10 @@ import java.lang.Exception
 
 class MedicineViewModel: ViewModel() {
 
-    var listMedicine: MutableLiveData<List<Medication>> = MutableLiveData()
+    var listMedicine: MutableLiveData<MutableList<Medication>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
+
+    var listm: MutableList<Medication> = mutableListOf()
 
 
 
@@ -17,6 +19,12 @@ class MedicineViewModel: ViewModel() {
 
         getMedicine()
 
+    }
+
+    fun refresh2() {
+
+
+        listMedicine.postValue(listm)
     }
 
     fun getMedicine() {
@@ -38,8 +46,10 @@ class MedicineViewModel: ViewModel() {
 
 
 
-        var listm: List<Medication> = mutableListOf(medication1,medication2)
+        listm.add(medication1)
+        listm.add(medication2)
         listMedicine.postValue(listm)
+
 
         Log.i("datos",listm.size.toString())
 
@@ -53,5 +63,24 @@ class MedicineViewModel: ViewModel() {
     fun isProcessFinished() {
 
         isLoading.value = true
+    }
+
+    /**
+     * adds Object to Firebase Collection
+     */
+    fun addMedicine(code: String) {
+
+
+        var medicationx = Medication()
+
+        medicationx.id=code
+        medicationx.image=""
+        medicationx.tag="N/A"
+        medicationx.name="Medicine added"
+
+        listm.add(medicationx)
+        listMedicine.postValue(listm)
+
+
     }
 }

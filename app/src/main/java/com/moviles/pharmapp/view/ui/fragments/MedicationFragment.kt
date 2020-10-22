@@ -95,6 +95,21 @@ class MedicationFragment: Fragment(),
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.refresh2()
+
+        medicineAdpater =
+            MedicationAdapter(this)
+
+        rvMedicine.apply {
+            layoutManager = GridLayoutManager(context, 1)
+            adapter = medicineAdpater
+        }
+
+        observeViewModel()
+    }
 
 
 
