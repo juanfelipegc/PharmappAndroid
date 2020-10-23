@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".view.ui.activities.MainActivity">
+        <activity android:name=".view.ui.activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.ui.activities.ScannerActivity"/>
+        <activity android:name=".view.ui.activities.MainActivity">
+
+        </activity>
+
+
+
     </application>
 
 </manifest>
