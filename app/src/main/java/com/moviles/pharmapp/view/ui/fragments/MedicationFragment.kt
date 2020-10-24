@@ -78,6 +78,21 @@ class MedicationFragment: Fragment(),
         findNavController().navigate(R.id.MedicineDetailFragmentDialog, bundle)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.refresh2()
+
+        medicineAdpater =
+            MedicationAdapter(this)
+
+        rvMedicine.apply {
+            layoutManager = GridLayoutManager(context, 1)
+            adapter = medicineAdpater
+        }
+
+        observeViewModel()
+    }
 
 
 

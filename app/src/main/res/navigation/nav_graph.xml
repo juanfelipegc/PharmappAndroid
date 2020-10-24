@@ -33,7 +33,9 @@
         android:id="@+id/scanner_activity"
         android:name="com.moviles.pharmapp.view.ui.activities.ScannerActivity"
         android:label="Activity_scanner"
-        tools:layout="@layout/activity_scanner"/>
+        tools:layout="@layout/activity_scanner">
+
+    </activity>
 
 
     <dialog
