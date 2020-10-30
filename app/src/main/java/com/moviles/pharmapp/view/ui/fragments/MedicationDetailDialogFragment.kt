@@ -29,20 +29,18 @@ class MedicationDetailDialogFragment: DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        tbSpeakerDetail.navigationIcon = ContextCompat.getDrawable(view.context, R.drawable.close)
-//        tbSpeakerDetail.setTitleTextColor(Color.WHITE)
-//        tbSpeakerDetail.setNavigationOnClickListener {
-//            dismiss()
-//        }
+
 
         val medicine = arguments?.getSerializable("medicine") as Medication
 
         tvMedicineTag.text = medicine.tag
 
         tvMedicationName.text = medicine.name
+
         tvIdMedicine.text = medicine.id
+
         Glide.with(this)
-            .load(medicine.image)
+            .load(R.drawable.ic_medicina)
             .apply(RequestOptions.circleCropTransform())
             .into(ivPictureMedicine)
 
