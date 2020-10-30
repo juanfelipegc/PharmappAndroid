@@ -57,7 +57,6 @@ class MedicationFragment: Fragment(),
             layoutManager = GridLayoutManager(context, 1)
             adapter = medicineAdpater
         }
-
         observeViewModel()
     }
 
