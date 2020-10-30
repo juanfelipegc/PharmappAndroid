@@ -1,425 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="94dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        >
+        android:text="@string/hello"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/medListTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@string/hello"
-            android:textColor="@color/colorStringWhite"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@string/userName"
-            android:textColor="@color/colorStringWhite"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/gotSickBtn"
-            android:layout_width="139dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="145dp"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/buttons_rounded"
-            android:gravity="start|bottom"
-            android:text="@string/gotSick"
-            android:textAllCaps="false"
-            android:textSize="20sp" />
-
-        <View
-            android:id="@+id/greyView"
-            android:layout_width="120dp"
-            android:layout_height="118dp"
-            android:layout_marginTop="135dp"
-            android:layout_marginStart="-130dp"
-            android:alpha="0.7"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#DADADA"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="-3dp" />
-
-        <Button
-            android:id="@+id/addDrugsBtn"
-            android:layout_width="139dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="145dp"
-            android:layout_marginStart="35dp"
-            android:background="@drawable/buttons_rounded"
-            android:gravity="start|bottom"
-            android:text="@string/addDrugs"
-            android:textAllCaps="false"
-            android:textSize="20sp" />
-
-        <View
-            android:id="@+id/greyView2"
-            android:layout_width="120dp"
-            android:layout_height="118dp"
-            android:layout_marginTop="135dp"
-            android:layout_marginStart="-130dp"
-            android:alpha="0.7"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#DADADA"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="-1dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="165dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/searchview_rounded_button"
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <View
             android:id="@+id/redRing"
             android:layout_width="58dp"
             android:layout_height="58dp"
-            android:layout_marginTop="190dp"
-            android:layout_marginEnd="305dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:alpha="0.2"
             android:background="@drawable/searchview_rounded"
             android:backgroundTint="#FF0000"
-            android:textAllCaps="false"
             android:textSize="20sp"
-            android:translationZ="3dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/gotSick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/gotSick"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/redRing" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout1"
+        android:layout_width="0dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/searchview_rounded_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
+
+        <View
+            android:id="@+id/redRing2"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:alpha="0.2"
+            android:background="@drawable/searchview_rounded"
+            android:backgroundTint="#FF0000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/addDrugs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/addDrugs"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/redRing2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="152dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/userName"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <View
-        android:id="@+id/redRing2"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="315dp"
-        android:alpha="0.2"
-        android:background="@drawable/searchview_rounded"
-        android:backgroundTint="#FF0000"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:translationZ="3dp" />
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-    android:id="@+id/blueRing"
-    android:layout_width="58dp"
-    android:layout_height="58dp"
-    android:layout_alignParentEnd="true"
-    android:layout_marginTop="190dp"
-    android:layout_marginEnd="139dp"
-    android:alpha="0.2"
-    android:background="@drawable/searchview_rounded"
-    android:backgroundTint="#0040FF"
-    android:textAllCaps="false"
-    android:textSize="20sp"
-    android:translationZ="3dp" />
-
-    <View
-        android:id="@+id/blueRing2"
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="149dp"
-        android:alpha="0.2"
-        android:background="@drawable/searchview_rounded"
-        android:backgroundTint="#0040FF"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:translationZ="3dp" />
-
-    <LinearLayout
-        android:id="@+id/filterBtns"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="220dp"
-        android:layout_marginStart="30dp">
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttons_rounded"
+        android:text="@string/all"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-        <Button
-            android:id="@+id/allMedsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/all"
-            android:textAllCaps="false"
-            android:background="@drawable/buttons_rounded"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttons_rounded"
+        android:text="@string/vitamins"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button" />
 
-        <Button
-            android:id="@+id/vitaminsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/vitamins"
-            android:textAllCaps="false"
-            android:layout_marginHorizontal="45dp"
-            android:background="@drawable/buttons_rounded"/>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons_rounded"
+        android:text="@string/pills"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button2" />
 
-        <Button
-            android:id="@+id/pillsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:textAllCaps="false"
-            android:text="@string/pills"
-            android:background="@drawable/buttons_rounded"/>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/dashed_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/country_content_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="-150dp"
-        tools:context=".MainActivity"
-        android:layout_below="@id/filterBtns">
-
-        <LinearLayout
-            android:id="@+id/dashedBorder"
-            android:layout_width="470dp"
-            android:layout_height="470dp"
-            android:orientation="vertical"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/dashed_border"
-            android:backgroundTint="#475FA8"
-            android:singleLine="false"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="2dp" >
-
-            <Button
-                android:id="@+id/timeStamp1"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginHorizontal="122dp"
-                android:background="@drawable/clock"
-                android:textAllCaps="false"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/timeStamp1Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="138dp"
-                android:layout_marginTop="-15dp"
-                android:backgroundTint="#00FFFFFF"
-                android:text="@string/time1"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textColor="#131313"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/timeStamp2"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginHorizontal="222dp"
-                android:layout_marginTop="-16dp"
-                android:background="@drawable/clock"
-                android:textAllCaps="false"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/timeStamp2Text"
-                android:layout_width="33dp"
-                android:layout_height="15dp"
-                android:layout_marginHorizontal="238dp"
-                android:layout_marginTop="-15dp"
-                android:backgroundTint="#00FFFFFF"
-                android:text="@string/time2"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textColor="#131313"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_calendar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
 
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/vitamin1"
-            android:layout_width="95dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="145dp"
-            android:layout_marginTop="-430dp"
-            android:background="@drawable/buttons_rounded"
-            android:gravity="start|center_vertical"
-            android:text="@string/vitamin1"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="2dp" />
-
-        <Button
-            android:id="@+id/drug1"
-            android:layout_width="95dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="-120dp"
-            android:layout_marginStart="255dp"
-            android:background="@drawable/buttons_rounded"
-            android:gravity="start|center_vertical"
-            android:text="@string/drug1"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp"/>
-
-        <Button
-            android:id="@+id/drug2"
-            android:layout_width="95dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="255dp"
-            android:background="@drawable/buttons_rounded"
-            android:gravity="start|center_vertical"
-            android:text="@string/drug1"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp"/>
-
-        <Button
-            android:id="@+id/vitamin22"
-            android:layout_width="95dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="-120dp"
-            android:layout_marginStart="145dp"
-            android:background="@drawable/buttons_rounded"
-            android:gravity="start|center_vertical"
-            android:text="@string/vitamin1"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp"/>
-
-        <Button
-            android:id="@+id/bluePill"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="-265dp"
-            android:layout_marginStart="160dp"
-            android:alpha="0.1"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp" />
-
-        <Button
-            android:id="@+id/bluePill2"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="-32dp"
-            android:layout_marginStart="268dp"
-            android:alpha="0.1"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp" />
-
-        <Button
-            android:id="@+id/bluePill3"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginStart="268dp"
-            android:alpha="0.1"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp" />
-
-        <Button
-            android:id="@+id/bluePill4"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="-35dp"
-            android:layout_marginStart="158dp"
-            android:alpha="0.1"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp" />
-
-        <Button
-            android:id="@+id/blueTag"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="-165dp"
-            android:layout_marginStart="18dp"
-            android:alpha="0.8"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp" />
-
-        <Button
-            android:id="@+id/blueTag2"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="135dp"
-            android:layout_marginStart="18dp"
-            android:alpha="0.8"
-            android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:translationZ="4dp" />
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="60dp"
-            android:layout_height="25dp"
-            android:layout_marginHorizontal="48dp"
-            android:layout_marginTop="-188dp"
-            android:backgroundTint="#00FFFFFF"
-            android:text="@string/date"
-            android:textAlignment="viewStart"
-            android:textAllCaps="false"
-            android:textColor="#131313"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/date2"
-            android:layout_width="70dp"
-            android:layout_height="25dp"
-            android:layout_marginHorizontal="48dp"
-            android:layout_marginTop="136dp"
-            android:backgroundTint="#00FFFFFF"
-            android:text="@string/date2"
-            android:textAlignment="viewStart"
-            android:textAllCaps="false"
-            android:textColor="#131313"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-</RelativeLayout>
-
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>
