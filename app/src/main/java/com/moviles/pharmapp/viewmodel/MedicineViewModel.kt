@@ -6,10 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.moviles.pharmapp.backend.repositories.RepoMedicines
 import com.moviles.pharmapp.model.Medication
+import com.moviles.pharmapp.network.Callback
+import com.moviles.pharmapp.network.FirestoreService
 import java.lang.Exception
 
 class MedicineViewModel: ViewModel(), BaseViewModel {
 
+
+    val firestoreService = FirestoreService()
     var listMedicine: MutableLiveData<MutableList<Medication>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
     val repoMedicines:RepoMedicines = RepoMedicines()
@@ -24,42 +28,68 @@ class MedicineViewModel: ViewModel(), BaseViewModel {
 
 
         listMedicine.postValue(listm)
+        getUserMedicineFromFireBase()
+        //repoMedicines.getAllMedicines(this, "Prueba")
     }
 
-    fun getMedicine() {
-
-        var medication1 = Medication()
-
-        medication1.id = "1"
-        medication1.name = "Dolex"
-        medication1.tag = "Pill"
-        medication1.image = ""
+    fun refresh2(listMedicine: MutableList<Medication>) {
 
 
-        var medication2 = Medication()
+        var medicationx = Medication()
 
-        medication2.id = "6"
-        medication2.name = "Advil"
-        medication2.tag = "Pill"
-        medication2.image = ""
+        medicationx.id="11"
+        medicationx.image=""
+        medicationx.tag="N/A"
+        medicationx.name="Medicine added"
+
+        listm.add(medicationx)
+    }
+
+    fun getUserMedicineFromFireBase() {
+
+        firestoreService.getUserMedicine(object: Callback<MutableList<Medication>> {
+            override fun onSucces(result: MutableList<Medication>?) {
+                listMedicine.postValue(result)
+                processFinished()
+            }
+
+            override fun onFailed(exception: Exception) {
+                processFinished()
+            }
+        })
+
+//        var medication1 = Medication()
+//
+//        medication1.id = "1"
+//        medication1.name = "Dolex"
+//        medication1.tag = "Pill"
+//        medication1.image = ""
+//
+//
+//        var medication2 = Medication()
+//
+//        medication2.id = "6"
+//        medication2.name = "Advil"
+//        medication2.tag = "Pill"
+//        medication2.image = ""
+//
+//
+//
+//        listm.add(medication1)
+//        listm.add(medication2)
+//        listMedicine.postValue(listm)
+//
+//
+//        Log.i("datos",listm.size.toString())
+//
+//        Log.i("datos",listMedicine.toString())
 
 
-
-        listm.add(medication1)
-        listm.add(medication2)
-        listMedicine.postValue(listm)
-
-
-        Log.i("datos",listm.size.toString())
-
-        Log.i("datos",listMedicine.toString())
-
-        isProcessFinished()
 
     }
 
 
-    fun isProcessFinished() {
+    fun processFinished() {
         isLoading.value = true
     }
 

@@ -47,7 +47,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
         val medicine = listMedicine[position] as Medication
 
         Glide.with(holder.itemView.context)
-            .load(medicine.image)
+            .load(R.drawable.ic_medicina)
             .apply(RequestOptions.circleCropTransform())
             .into(holder.ivMedication)
 

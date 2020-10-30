@@ -1,6 +1,8 @@
 package com.moviles.pharmapp.model
 
-class Medication : BaseModel() {
+import java.io.Serializable
+
+class Medication :  BaseModel(), Serializable {
 
     var name =""
     var tag = ""
