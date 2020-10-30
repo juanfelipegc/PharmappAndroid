@@ -270,7 +270,6 @@ class ScannerActivity : AppCompatActivity() {
                             }
 
                             if (!code.isEmpty()) {
-
                                 viewModel.addMedicine(code)
                                 finish()
                             }

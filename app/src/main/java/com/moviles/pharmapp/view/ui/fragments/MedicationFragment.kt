@@ -42,7 +42,6 @@ class MedicationFragment: Fragment(),
         var addBtn = view.allMedsButton
 
         addBtn.setOnClickListener {
-
             findNavController().navigate(R.id.scanner_activity)
         }
         return view

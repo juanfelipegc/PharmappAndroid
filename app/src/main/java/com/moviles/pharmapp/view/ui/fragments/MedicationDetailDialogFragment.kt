@@ -46,7 +46,6 @@ class MedicationDetailDialogFragment: DialogFragment() {
             .apply(RequestOptions.circleCropTransform())
             .into(ivPictureMedicine)
 
-
     }
 
     override fun onStart() {

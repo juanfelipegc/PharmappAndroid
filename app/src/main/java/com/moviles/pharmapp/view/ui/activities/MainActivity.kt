@@ -1,5 +1,6 @@
 package com.moviles.pharmapp.view.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
@@ -25,4 +26,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         configNav()
     }
+
+
 }

@@ -13,10 +13,7 @@ class MedicineViewModel: ViewModel(), BaseViewModel {
     var listMedicine: MutableLiveData<MutableList<Medication>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
     val repoMedicines:RepoMedicines = RepoMedicines()
-
     var listm: MutableList<Medication> = mutableListOf()
-
-
 
     fun refresh() {
         getMedicine()
@@ -90,7 +87,7 @@ class MedicineViewModel: ViewModel(), BaseViewModel {
     }
 
     override fun exito(etiqueta: String?, objeto: Any?) {
-        val listmed: List<Medication> = objeto as List<Medication>
+        val listmed: MutableList<Medication> = objeto as MutableList<Medication>
         listMedicine.postValue(listmed)
     }
 
@@ -99,7 +96,7 @@ class MedicineViewModel: ViewModel(), BaseViewModel {
     }
 
     override fun actualizacion(etiqueta: String?, objeto: Any?) {
-        val listmed: List<Medication> = objeto as List<Medication>
+        val listmed: MutableList<Medication> = objeto as MutableList<Medication>
         listMedicine.postValue(listmed)
     }
 }
