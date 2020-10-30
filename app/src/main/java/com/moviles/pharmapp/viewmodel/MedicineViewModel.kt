@@ -20,7 +20,6 @@ class MedicineViewModel: ViewModel(), BaseViewModel {
     var listm: MutableList<Medication> = mutableListOf()
 
     fun refresh() {
-        getMedicine()
         repoMedicines.getAllMedicines(this, "Prueba")
     }
 
