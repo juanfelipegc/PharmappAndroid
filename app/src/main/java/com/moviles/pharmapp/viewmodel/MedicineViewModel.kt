@@ -21,6 +21,7 @@ class MedicineViewModel: ViewModel() {
 
     fun refresh() {
         //getMedicine()
+
         getUserMedicineFromFireBase()
         //repoMedicines.getAllMedicines(this, "Prueba")
     }
