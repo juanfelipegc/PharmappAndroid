@@ -13,4 +13,6 @@
     <color name="colorGreenTexts">#06B7AA</color>
     <color name="colorGreyTexts">#AAAAAA</color>
     <color name="colorGreenButtons">#75EAC3</color>
+    <color name="colorDegradeInit">#75EAC3</color>
+    <color name="colorDegradeEnd">#06B7AA</color>
 </resources>

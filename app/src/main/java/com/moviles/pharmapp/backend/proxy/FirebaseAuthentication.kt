@@ -1,12 +1,14 @@
 package com.moviles.pharmapp.backend.proxy
 
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.moviles.pharmapp.backend.repositories.BaseBackend
 import com.moviles.pharmapp.model.User
 import com.moviles.pharmapp.utilities.Constants
-import com.moviles.pharmapp.backend.repositories.BaseBackend
 
 class FirebaseAuthentication(val activity: AppCompatActivity) : BaseProxy(activity) {
 
@@ -33,4 +35,36 @@ class FirebaseAuthentication(val activity: AppCompatActivity) : BaseProxy(activi
                     }
                 })
     }
+
+    fun loginWithEmail(
+        pUser: User,
+        listener: BaseBackend,
+        etiqueta: String
+    ) {
+        if (!checkInternetConnection()) {
+            listener.falla(Constants.Errors.NO_INTERNET)
+            return
+        }
+        mAuth = FirebaseAuth.getInstance()
+        mAuth.signInWithEmailAndPassword(pUser.email, pUser.password)
+            .addOnCompleteListener(
+                activity
+            ) { task: Task<AuthResult?> ->
+                if (!task.isSuccessful) {
+                    val errr = task.exception!!.message
+                    val erNoReconocido =
+                        "There is no user record corresponding to this identifier. The user may have been deleted."
+                    if (errr == erNoReconocido) {
+                        listener.falla(Constants.Errors.EMAIL_UNKNOWN)
+                    } else {
+                        listener.falla(Constants.Errors.WRONG_INFO_EMAIL)
+                    }
+                } else {
+                    val user1 = mAuth.currentUser
+                    listener.exito(etiqueta, user1)
+                }
+            }
+    }
+
+
 }

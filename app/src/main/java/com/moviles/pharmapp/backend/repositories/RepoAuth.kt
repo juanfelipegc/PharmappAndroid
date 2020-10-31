@@ -11,4 +11,8 @@ class RepoAuth(val activity: AppCompatActivity) {
     fun registerNewUser(user: User, listener: BaseBackend, label: String){
         firebaseAuth.registerUser(user, listener, label)
     }
+
+    fun loginUser(user: User, listener: BaseBackend, label: String){
+        firebaseAuth.loginWithEmail(user, listener, label)
+    }
 }
