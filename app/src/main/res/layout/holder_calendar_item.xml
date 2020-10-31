@@ -41,14 +41,14 @@
         app:layout_constraintTop_toBottomOf="@+id/timeStamp2Text">
 
         <View
-            android:id="@+id/redRing"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
+            android:id="@+id/greenRing1"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:alpha="0.2"
+            android:alpha="0.4"
             android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#0040FF"
+            android:backgroundTint="@color/colorGreenTexts"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -58,12 +58,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="@string/drug1"
+            android:textColor="@color/colorStringBlack"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/colorStringBlack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/redRing" />
+            app:layout_constraintTop_toBottomOf="@+id/greenRing1" />
 
         <TextView
             android:id="@+id/vitamins"
@@ -72,11 +73,13 @@
             android:layout_marginTop="8dp"
             android:alpha="1"
             android:background="@drawable/searchview_rounded_button"
-            android:backgroundTint="#3D6AEF"
+            android:backgroundTint="@color/colorGreenButtons"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:text="@string/vitamins"
             android:textColor="@color/colorStringBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/drugs" />
