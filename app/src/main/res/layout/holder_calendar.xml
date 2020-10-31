@@ -22,7 +22,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/searchview_rounded"
-        android:backgroundTint="#0040FF"
+        android:backgroundTint="@color/colorGreenButtons"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

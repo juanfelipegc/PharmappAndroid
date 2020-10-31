@@ -33,7 +33,7 @@ class CalendarItemAdapter: RecyclerView.Adapter<CalendarItemAdapter.ViewHolder>(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val timeStamp2Text = itemView.findViewById<TextView>(R.id.timeStamp2Text)
-        val gotSick = itemView.findViewById<TextView>(R.id.gotSick)
+        val gotSick = itemView.findViewById<TextView>(R.id.drugs)
         val tvVitamins = itemView.findViewById<TextView>(R.id.vitamins)
     }
 }

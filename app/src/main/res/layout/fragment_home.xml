@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background1">
+    android:background="@drawable/background_new">
 
     <TextView
         android:id="@+id/textView2"
@@ -15,6 +15,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/hello"
         android:textSize="30sp"
+        android:textColor="@color/colorGreenTexts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,20 +32,37 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <View
-            android:id="@+id/redRing"
+            android:id="@+id/greenRing1"
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:alpha="0.2"
+            android:alpha="0.3"
             android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#FF0000"
+            android:backgroundTint="@color/colorGreenTexts"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:id="@+id/greenRing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:alpha="0.4"
+            android:background="@drawable/searchview_rounded"
+            android:backgroundTint="@color/colorGreenTexts"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/greenRing1"
+            app:layout_constraintEnd_toEndOf="@+id/greenRing1"
+            app:layout_constraintStart_toStartOf="@+id/greenRing1"
+            app:layout_constraintTop_toTopOf="@+id/greenRing1" />
+
         <TextView
-            android:id="@+id/gotSick"
+            android:id="@+id/drugs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -52,8 +70,9 @@
             android:text="@string/gotSick"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/colorStringBlack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/redRing" />
+            app:layout_constraintTop_toBottomOf="@+id/greenRing1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -69,17 +88,34 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout">
 
         <View
-            android:id="@+id/redRing2"
+            android:id="@+id/greenRing2"
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:alpha="0.2"
+            android:alpha="0.1"
             android:background="@drawable/searchview_rounded"
-            android:backgroundTint="#FF0000"
+            android:backgroundTint="@color/colorGreenTexts"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/greenRing3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:alpha="0.2"
+            android:background="@drawable/searchview_rounded"
+            android:backgroundTint="@color/colorGreenTexts"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/greenRing2"
+            app:layout_constraintEnd_toEndOf="@+id/greenRing2"
+            app:layout_constraintStart_toStartOf="@+id/greenRing2"
+            app:layout_constraintTop_toTopOf="@+id/greenRing2" />
 
         <TextView
             android:id="@+id/addDrugs"
@@ -90,8 +126,9 @@
             android:text="@string/addDrugs"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:textColor="@color/colorStringBlack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/redRing2" />
+            app:layout_constraintTop_toBottomOf="@+id/greenRing2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -103,6 +140,7 @@
         android:text="@string/userName"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:textColor="@color/colorGreenTexts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -125,6 +163,7 @@
         android:background="@drawable/buttons_rounded"
         android:text="@string/all"
         android:textAllCaps="false"
+        android:textColor="@color/colorStringBlack"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -139,6 +178,7 @@
         android:background="@drawable/buttons_rounded"
         android:text="@string/vitamins"
         android:textAllCaps="false"
+        android:textColor="@color/colorStringBlack"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button"
@@ -151,6 +191,7 @@
         android:background="@drawable/buttons_rounded"
         android:text="@string/pills"
         android:textAllCaps="false"
+        android:textColor="@color/colorStringBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button2"
