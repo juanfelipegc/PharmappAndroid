@@ -8,5 +8,6 @@ class Medication :  Serializable {
     var tag = ""
     var id = ""
     var image = ""
+    var description = ""
 
 }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background2">
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0.3"/>
+                    <ImageView
+                        android:id="@+id/ivPictureMedicine"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_marginTop="58dp"/>
+
+
+
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="15dp"
+                    android:elevation="3dp"
+                    android:layout_margin="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/shape_paragraph">
+
+                        <TextView
+                            android:id="@+id/tvMedicationName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/medication_name"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorStringBlack"
+                            android:ellipsize="end"
+                            android:lines="2"
+                            android:gravity="center_horizontal"
+                            android:layout_margin="5dp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/tvBriefInfoMedication"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/brief_description"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorStringGrey"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:gravity="center_horizontal"
+                            android:layout_margin="5dp"/>
+
+                        <TextView
+                            android:id="@+id/tvMedicineTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFFFFF"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:background="@drawable/shape_topic"
+                            android:layout_margin="5dp"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/tag"/>
+
+                        <TextView
+                            android:id="@+id/tvIdMedicine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/info"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorStringGrey"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:gravity="center_horizontal"
+                            android:layout_margin="5dp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/tvMedicationInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorStringBlack"
+                            android:textStyle="bold"
+                            android:ellipsize="end"
+                            android:gravity="center_horizontal"
+                            android:layout_margin="5dp"/>
+
+
+
+
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+                <Button
+                    android:id="@+id/addMedBtn"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_medicine"
+                    android:background="@drawable/button_rounded_green"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

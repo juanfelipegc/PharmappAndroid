@@ -1,5 +1,6 @@
 package com.moviles.pharmapp.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.moviles.pharmapp.backend.repositories.RepoMedicines
@@ -12,36 +13,50 @@ class MedicineViewModel: ViewModel() {
 
 
     val firestoreService = FirestoreService()
-    var listMedicine: MutableLiveData<MutableList<Medication>> = MutableLiveData()
+    var listMedicine: MutableLiveData<List<Medication>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
-    val repoMedicines:RepoMedicines = RepoMedicines()
-
-    var listm: MutableList<Medication> = mutableListOf()
+    var medicine = Medication()
 
 
 
     fun refresh() {
+        //getMedicine()
         getUserMedicineFromFireBase()
         //repoMedicines.getAllMedicines(this, "Prueba")
     }
 
-    fun refresh2(listMedicine: MutableList<Medication>) {
+    fun findMedicine(code: String): Medication {
 
 
-        var medicationx = Medication()
+        firestoreService.findMedicine(code, object: Callback<Medication>{
 
-        medicationx.id="11"
-        medicationx.image=""
-        medicationx.tag="N/A"
-        medicationx.name="Medicine added"
+            override fun onSucces(result: Medication?){
 
-        listm.add(medicationx)
+                medicine = result!!
+                Log.i("Medicina",medicine.name)
+
+                processFinished()
+            }
+
+            override fun onFailed(exception: Exception) {
+
+
+                processFinished()
+            }
+
+
+
+        })
+
+        Log.i("Medicina",medicine.name)
+        return medicine
     }
 
     fun getUserMedicineFromFireBase() {
 
-        firestoreService.getUserMedicine(object: Callback<MutableList<Medication>> {
-            override fun onSucces(result: MutableList<Medication>?) {
+        firestoreService.getUserMedicine(object: Callback<List<Medication>> {
+            override fun onSucces(result: List<Medication>?) {
+
                 listMedicine.postValue(result)
                 processFinished()
             }
@@ -51,34 +66,6 @@ class MedicineViewModel: ViewModel() {
             }
         })
 
-//        var medication1 = Medication()
-//
-//        medication1.id = "1"
-//        medication1.name = "Dolex"
-//        medication1.tag = "Pill"
-//        medication1.image = ""
-//
-//
-//        var medication2 = Medication()
-//
-//        medication2.id = "6"
-//        medication2.name = "Advil"
-//        medication2.tag = "Pill"
-//        medication2.image = ""
-//
-//
-//
-//        listm.add(medication1)
-//        listm.add(medication2)
-//        listMedicine.postValue(listm)
-//
-//
-//        Log.i("datos",listm.size.toString())
-//
-//        Log.i("datos",listMedicine.toString())
-
-
-
     }
 
 
@@ -86,40 +73,32 @@ class MedicineViewModel: ViewModel() {
         isLoading.value = true
     }
 
-//    override fun stopListener() {
-//
-//    }
 
     /**
      * adds Object to Firebase Collection
      */
-    fun addMedicine(code: String) {
+    fun addMedicine(medicine: Medication) {
 
 
-        var medicationx = Medication()
 
-        medicationx.id=code
-        medicationx.image=""
-        medicationx.tag="N/A"
-        medicationx.name="Medicine added"
-
-        listm.add(medicationx)
-        listMedicine.postValue(listm)
+        firestoreService.addUserMedicine(medicine)
+        refresh()
 
 
     }
 
-//    override fun exito(etiqueta: String?, objeto: Any?) {
-//        val listmed: MutableList<Medication> = objeto as MutableList<Medication>
-//        listMedicine.postValue(listmed)
-//    }
-//
-//    override fun falla(etiqueta: String?) {
-//
-//    }
-//
-//    override fun actualizacion(etiqueta: String?, objeto: Any?) {
-//        val listmed: MutableList<Medication> = objeto as MutableList<Medication>
-//        listMedicine.postValue(listmed)
-//    }
+    fun getMedicine() {
+
+        firestoreService.getMedicine(object: Callback<List<Medication>> {
+            override fun onSucces(result: List<Medication>?) {
+                listMedicine.postValue(result)
+                processFinished()
+            }
+
+            override fun onFailed(exception: Exception) {
+                processFinished()
+            }
+        })
+    }
+
 }

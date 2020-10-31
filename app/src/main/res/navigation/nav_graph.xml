@@ -33,7 +33,21 @@
         android:name="com.moviles.pharmapp.view.ui.fragments.ScannerFragment"
         android:label="fragment_scanner"
         tools:layout="@layout/fragment_scanner"
-        />
+        >
+        <action
+            android:id="@+id/action_scanner_fragment_to_AddMedicineDetailFragmentDialog"
+            app:destination="@id/AddMedicineDetailFragmentDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/AddMedicineDetailFragmentDialog"
+        android:name="com.moviles.pharmapp.view.ui.fragments.AddMedicationDetailDialog"
+        android:label="AddMedicineDetailFragmentDialog"
+        tools:layout="@layout/fragment_add_medicine_detail_dialog">
+        <action
+            android:id="@+id/action_AddMedicineDetailFragmentDialog_to_medication_fragment"
+            app:destination="@id/medication_fragment" />
+    </dialog>
 
 
 
