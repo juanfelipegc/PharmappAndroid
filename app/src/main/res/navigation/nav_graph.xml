@@ -24,16 +24,32 @@
             android:id="@+id/action_medication_fragment_to_MedicineDetailFragmentDialog"
             app:destination="@id/MedicineDetailFragmentDialog" />
         <action
-            android:id="@+id/action_medication_fragment_to_scanner_activity"
-            app:destination="@id/scanner_activity" />
+            android:id="@+id/action_medication_fragment_to_scanner_fragment"
+            app:destination="@id/scanner_fragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/scanner_fragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.ScannerFragment"
+        android:label="fragment_scanner"
+        tools:layout="@layout/fragment_scanner"
+        >
+        <action
+            android:id="@+id/action_scanner_fragment_to_AddMedicineDetailFragmentDialog"
+            app:destination="@id/AddMedicineDetailFragmentDialog" />
+    </fragment>
 
-    <activity
-        android:id="@+id/scanner_activity"
-        android:name="com.moviles.pharmapp.view.ui.activities.ScannerActivity"
-        android:label="Activity_scanner"
-        tools:layout="@layout/activity_scanner"/>
+    <dialog
+        android:id="@+id/AddMedicineDetailFragmentDialog"
+        android:name="com.moviles.pharmapp.view.ui.fragments.AddMedicationDetailDialog"
+        android:label="AddMedicineDetailFragmentDialog"
+        tools:layout="@layout/fragment_add_medicine_detail_dialog">
+        <action
+            android:id="@+id/action_AddMedicineDetailFragmentDialog_to_medication_fragment"
+            app:destination="@id/medication_fragment" />
+    </dialog>
+
+
 
 
     <dialog

@@ -104,6 +104,7 @@
             android:layout_marginBottom="15dp"/>
 
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMedicine"
             android:layout_width="match_parent"
@@ -112,7 +113,26 @@
             android:scrollbars="vertical"/>
 
 
+
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlBase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:alpha="0.5"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
 

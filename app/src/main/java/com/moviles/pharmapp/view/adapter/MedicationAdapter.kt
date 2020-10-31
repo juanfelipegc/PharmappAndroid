@@ -17,9 +17,6 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
     var listMedicine = ArrayList<Medication>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
-
-
         val ivMedication = itemView.findViewById<ImageView>(R.id.ivItemMedicationimage)
         val tvMedicationName = itemView.findViewById<TextView>(R.id.tvItemMedicationName)
         val tvMedicationTag = itemView.findViewById<TextView>(R.id.tvItemMedicationTag)
@@ -34,9 +31,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(LayoutInflater.from(parent.context).inflate(
                 R.layout.item_medication,
                 parent,
                 false
@@ -50,12 +45,13 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
         val medicine = listMedicine[position] as Medication
 
         Glide.with(holder.itemView.context)
-            .load(medicine.image)
+            .load(R.drawable.ic_medicina)
             .apply(RequestOptions.circleCropTransform())
             .into(holder.ivMedication)
 
         holder.tvMedicationName.text = medicine.name
         holder.tvMedicationTag.text = medicine.tag
+
 
         holder.itemView.setOnClickListener {
             medicationListener.onMedicineClicked(medicine,position)

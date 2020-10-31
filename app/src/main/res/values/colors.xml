@@ -10,4 +10,9 @@
     <color name="borderItem">#F3F9FD</color>
     <color name="colorStringGrey">#ACB0B3</color>
     <color name="colorGreen">#69C9BB</color>
+    <color name="colorGreenTexts">#06B7AA</color>
+    <color name="colorGreyTexts">#AAAAAA</color>
+    <color name="colorGreenButtons">#75EAC3</color>
+    <color name="colorDegradeInit">#75EAC3</color>
+    <color name="colorDegradeEnd">#06B7AA</color>
 </resources>
