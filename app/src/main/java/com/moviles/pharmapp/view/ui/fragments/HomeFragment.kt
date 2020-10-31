@@ -30,7 +30,6 @@ class HomeFragment: Fragment() {
         calendarAdpater = CalendarAdapter()
         recycler_calendar.apply {
             val linear = LinearLayoutManager(context)
-//            linear.orientation = RecyclerView.VERTICAL
             layoutManager = linear
             adapter = calendarAdpater
         }
