@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/drugs"
+        android:id="@+id/itemCalendarContraintLayout"
         android:layout_width="0dp"
         android:layout_height="108dp"
         android:layout_marginStart="16dp"
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/gotSick"
+            android:id="@+id/drugs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -69,17 +69,17 @@
             android:id="@+id/vitamins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="@string/vitamins"
-            android:textColor="@color/colorStringBlack"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
             android:alpha="1"
             android:background="@drawable/searchview_rounded_button"
             android:backgroundTint="#3D6AEF"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/vitamins"
+            android:textColor="@color/colorStringBlack"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gotSick" />
+            app:layout_constraintTop_toBottomOf="@+id/drugs" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
