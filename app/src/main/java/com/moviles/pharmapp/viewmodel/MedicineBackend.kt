@@ -3,25 +3,32 @@ package com.moviles.pharmapp.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.moviles.pharmapp.backend.repositories.BaseBackend
 import com.moviles.pharmapp.backend.repositories.RepoMedicines
 import com.moviles.pharmapp.model.Medication
 import com.moviles.pharmapp.network.Callback
 import com.moviles.pharmapp.network.FirestoreService
 import java.lang.Exception
 
-class MedicineViewModel: ViewModel() {
+class MedicineBackend: ViewModel(),
+    BaseBackend {
 
 
     val firestoreService = FirestoreService()
     var listMedicine: MutableLiveData<List<Medication>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
+    val repoMedicines:RepoMedicines = RepoMedicines()
+    var listm: MutableList<Medication> = mutableListOf()
     var medicine = Medication()
 
-
-
     fun refresh() {
-        //getMedicine()
+        repoMedicines.getAllMedicines(this, "Prueba")
+    }
 
+    fun refresh2() {
+
+
+        listMedicine.postValue(listm)
         getUserMedicineFromFireBase()
         //repoMedicines.getAllMedicines(this, "Prueba")
     }
@@ -74,6 +81,9 @@ class MedicineViewModel: ViewModel() {
         isLoading.value = true
     }
 
+    override fun stopListener() {
+
+    }
 
     /**
      * adds Object to Firebase Collection
@@ -100,6 +110,20 @@ class MedicineViewModel: ViewModel() {
                 processFinished()
             }
         })
+    }
+
+    override fun exito(etiqueta: String?, objeto: Any?) {
+        val listmed: MutableList<Medication> = objeto as MutableList<Medication>
+        listMedicine.postValue(listmed)
+    }
+
+    override fun falla(etiqueta: String?) {
+
+    }
+
+    override fun actualizacion(etiqueta: String?, objeto: Any?) {
+        val listmed: MutableList<Medication> = objeto as MutableList<Medication>
+        listMedicine.postValue(listmed)
     }
 
 }

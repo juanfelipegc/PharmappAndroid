@@ -28,4 +28,17 @@
     <string name="edit">Edit</string>
     <string name="medication_name">Medication name</string>
     <string name="add_medicine">Add medicine</string>
+
+    <!--REGISTER AND LOGIN-->
+    <string name="create_account">Create\naccount</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="email">Email</string>
+    <string-array name="gender">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
 </resources>

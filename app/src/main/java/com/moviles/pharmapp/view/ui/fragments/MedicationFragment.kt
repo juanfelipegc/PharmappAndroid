@@ -15,7 +15,7 @@ import com.moviles.pharmapp.R
 import com.moviles.pharmapp.model.Medication
 import com.moviles.pharmapp.view.adapter.MedicationAdapter
 import com.moviles.pharmapp.view.adapter.MedicationListener
-import com.moviles.pharmapp.viewmodel.MedicineViewModel
+import com.moviles.pharmapp.viewmodel.MedicineBackend
 import kotlinx.android.synthetic.main.fragment_medication.*
 import kotlinx.android.synthetic.main.fragment_medication.view.*
 
@@ -23,7 +23,7 @@ class MedicationFragment: Fragment(),
     MedicationListener {
 
     private lateinit var medicineAdpater: MedicationAdapter
-    private lateinit var viewModel: MedicineViewModel
+    private lateinit var viewModel: MedicineBackend
 
 
 
@@ -47,7 +47,7 @@ class MedicationFragment: Fragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MedicineBackend::class.java)
         viewModel.refresh()
 
         medicineAdpater =
@@ -57,7 +57,6 @@ class MedicationFragment: Fragment(),
             layoutManager = GridLayoutManager(context, 1)
             adapter = medicineAdpater
         }
-
         observeViewModel()
     }
 

@@ -31,9 +31,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        MedicationAdapter.ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(LayoutInflater.from(parent.context).inflate(
                 R.layout.item_medication,
                 parent,
                 false
