@@ -54,6 +54,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
         holder.tvMedicationName.text = medicine.name
         holder.tvMedicationTag.text = medicine.tag
 
+
         holder.itemView.setOnClickListener {
             medicationListener.onMedicineClicked(medicine,position)
         }
