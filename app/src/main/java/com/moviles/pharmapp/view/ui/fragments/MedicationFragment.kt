@@ -62,10 +62,15 @@ class MedicationFragment: Fragment(),
     }
 
     fun observeViewModel() {
+
         viewModel.listMedicine.observe(viewLifecycleOwner, Observer<List<Medication>> { medicine ->
             medicine.let {
                 medicineAdpater.updateData(medicine)
             }
+        })
+        viewModel.isLoading.observe(viewLifecycleOwner,Observer<Boolean> {
+            if(it!=null)
+                rlBase.visibility = View.INVISIBLE
         })
     }
 

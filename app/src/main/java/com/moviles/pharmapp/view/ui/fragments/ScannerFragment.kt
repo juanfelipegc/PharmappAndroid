@@ -14,8 +14,10 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.moviles.pharmapp.R
 import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import java.io.File
@@ -117,6 +119,13 @@ class ScannerFragment: Fragment(){
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         return view
+    }
+
+    fun stopCamera() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+        cameraProvider.unbindAll()
+
     }
 
     fun startCamera() {
@@ -224,7 +233,19 @@ class ScannerFragment: Fragment(){
 
                             if (!code.isEmpty()) {
 
-                                viewModel.addMedicine(code)
+                                val medicine = viewModel.findMedicine(code)
+
+                                Log.i("Medicina",medicine.name+"SCANEEEEEER")
+
+                                if (!medicine.name.equals("")) {
+
+                                    val bundle = bundleOf("medicine" to medicine)
+
+                                    findNavController().navigate(R.id.AddMedicineDetailFragmentDialog,bundle)
+
+                                    stopCamera()
+                                }
+
                             }
                             when (valueType) {
 

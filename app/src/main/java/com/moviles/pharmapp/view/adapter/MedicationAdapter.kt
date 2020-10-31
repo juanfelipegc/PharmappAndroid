@@ -32,7 +32,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(
+        MedicationAdapter.ViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_medication,
                 parent,
@@ -53,6 +53,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
 
         holder.tvMedicationName.text = medicine.name
         holder.tvMedicationTag.text = medicine.tag
+
 
         holder.itemView.setOnClickListener {
             medicationListener.onMedicineClicked(medicine,position)
