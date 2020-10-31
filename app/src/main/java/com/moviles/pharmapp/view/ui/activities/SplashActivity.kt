@@ -20,7 +20,7 @@ class SplashActivity: AppCompatActivity() {
         val animation = AnimationUtils.loadAnimation(this, R.anim.animation)
         ivLogoPharmapp.startAnimation(animation)
 
-        val intent = Intent(this, RegisterActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         animation.setAnimationListener(object : Animation.AnimationListener {
             /**
              *
