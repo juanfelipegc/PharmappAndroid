@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.moviles.pharmapp.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class CalendarAdapter: RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
 
@@ -22,13 +24,23 @@ class CalendarAdapter: RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
 
 
     override fun getItemCount(): Int {
-        return 7 //La semana
+        return 1 //La semana
     }
 
     override fun onBindViewHolder(holder: CalendarAdapter.ViewHolder, position: Int) {
         holder.tvDay.text = "Today"
         holder.tvTimes.text = "2 Times"
 
+        val recyclerCalendarItemAdapter = holder.rvDrugs
+
+        val calendarItemAdpater = CalendarItemAdapter()
+
+        recyclerCalendarItemAdapter.apply {
+            val linear = LinearLayoutManager(context)
+           linear.orientation = RecyclerView.HORIZONTAL
+            layoutManager = linear
+            adapter = calendarItemAdpater
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

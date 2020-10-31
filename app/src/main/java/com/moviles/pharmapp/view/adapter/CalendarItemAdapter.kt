@@ -7,32 +7,33 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.moviles.pharmapp.R
 
-class CalendarItemAdapter {
+class CalendarItemAdapter: RecyclerView.Adapter<CalendarItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    )= ViewHolder(
+    )= CalendarItemAdapter.ViewHolder(
         LayoutInflater.from(parent.context).inflate(
-            R.layout.holder_calendar,
+            R.layout.holder_calendar_item,
             parent,
             false)
     )
 
 
     override fun getItemCount(): Int {
-        return 7 //La semana
+        return 4 //Los medicamentos
     }
 
-    override fun onBindViewHolder(holder: CalendarAdapter.ViewHolder, position: Int) {
-        holder.tvDay.text = "Today"
-        holder.tvTimes.text = "2 Times"
+    override fun onBindViewHolder(holder: CalendarItemAdapter.ViewHolder, position: Int) {
+        holder.timeStamp2Text.text = "12:30"
+        holder.tvDrugs.text = "Voltaren"
+        holder.tvVitamins.text = "Vitamins"
 
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val tvDay = itemView.findViewById<TextView>(R.id.tvDay)
-        val tvTimes = itemView.findViewById<TextView>(R.id.tvTimes)
-        val rvDrugs = itemView.findViewById<RecyclerView>(R.id.rvItemsCalendar)
+        val timeStamp2Text = itemView.findViewById<TextView>(R.id.timeStamp2Text)
+        val tvDrugs = itemView.findViewById<TextView>(R.id.drugs)
+        val tvVitamins = itemView.findViewById<TextView>(R.id.vitamins)
     }
 }
