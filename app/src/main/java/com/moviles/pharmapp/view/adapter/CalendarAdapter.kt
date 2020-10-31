@@ -24,7 +24,7 @@ class CalendarAdapter: RecyclerView.Adapter<CalendarAdapter.ViewHolder>() {
 
 
     override fun getItemCount(): Int {
-        return 1 //La semana
+        return 7 //La semana
     }
 
     override fun onBindViewHolder(holder: CalendarAdapter.ViewHolder, position: Int) {

@@ -26,14 +26,14 @@ class CalendarItemAdapter: RecyclerView.Adapter<CalendarItemAdapter.ViewHolder>(
 
     override fun onBindViewHolder(holder: CalendarItemAdapter.ViewHolder, position: Int) {
         holder.timeStamp2Text.text = "12:30"
-        holder.tvDrugs.text = "Voltaren"
+        holder.gotSick.text = "Voltaren"
         holder.tvVitamins.text = "Vitamins"
 
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val timeStamp2Text = itemView.findViewById<TextView>(R.id.timeStamp2Text)
-        val tvDrugs = itemView.findViewById<TextView>(R.id.drugs)
+        val gotSick = itemView.findViewById<TextView>(R.id.gotSick)
         val tvVitamins = itemView.findViewById<TextView>(R.id.vitamins)
     }
 }
