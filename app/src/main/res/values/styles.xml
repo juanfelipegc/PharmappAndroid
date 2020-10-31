@@ -14,6 +14,12 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Theme.App.Register" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/colorGreyTexts</item>
+        <item name="colorControlActivated">@color/colorGreenTexts</item>
+        <item name="colorControlHighlight">@color/colorGreenTexts</item>
+    </style>
+
     <style name="fullScreenDialogStyle" parent = "Theme.AppCompat.Light.Dialog">
 
         <item name="android:windowNoTitle">true</item>
