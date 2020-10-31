@@ -1,6 +1,5 @@
 package com.moviles.pharmapp.backend.proxy
 
-import android.content.Context
 import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -9,7 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ListenerRegistration
 import com.moviles.pharmapp.model.BaseModel
 import com.moviles.pharmapp.utilities.Constants
-import com.moviles.pharmapp.viewmodel.BaseViewModel
+import com.moviles.pharmapp.backend.repositories.BaseBackend
 import java.util.*
 import kotlin.reflect.KClass
 
@@ -26,7 +25,7 @@ class FirebaseDB {
     fun <T : BaseModel?> updateValue(
         rutaDocumento: Map<String, String?>,
         valorModificar: Map<String?, Any?>?,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String?,
         clase: Any?
     ) {
@@ -46,7 +45,7 @@ class FirebaseDB {
     fun addDocumentAutoID(
         rutaDocumento: Map<String, String?>,
         nuevoDoc: Map<String?, Any?>?,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String,
         clase: Any
     ) {
@@ -71,7 +70,7 @@ class FirebaseDB {
     fun addDocument(
         rutaDocumento: Map<String, String?>,
         nuevoDoc: Map<String?, Any?>?,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String?,
         clase: Any?
     ) {
@@ -90,7 +89,7 @@ class FirebaseDB {
 
     fun deleteDocument(
         rutaDocumento: Map<String, String?>,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String?,
         clase: Any?
     ) {
@@ -109,7 +108,7 @@ class FirebaseDB {
 
     fun <T : BaseModel> getDocument(
         rutaDocumento: Map<String, String?>,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String?,
         clase: KClass<T>
     ) {
@@ -146,7 +145,7 @@ class FirebaseDB {
 
     fun <T : BaseModel>getCollection(
         rutaColeccion: Map<String, String>,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String,
         clase: KClass<T>
     ) {
@@ -190,7 +189,7 @@ class FirebaseDB {
 
     fun <T : BaseModel?> getCollectionByField(
         rutaColeccion: Map<String, String?>,
-        listener: BaseViewModel,
+        listener: BaseBackend,
         etiqueta: String?,
         clase: Class<T>?,
         campo: String?,

@@ -1,6 +1,6 @@
-package com.moviles.pharmapp.viewmodel
+package com.moviles.pharmapp.backend.repositories
 
-interface BaseViewModel {
+interface BaseBackend {
     fun stopListener()
     fun exito(etiqueta: String?, objeto: Any?)
     fun falla(etiqueta: String?)

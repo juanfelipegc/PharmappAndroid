@@ -1,16 +1,16 @@
 package com.moviles.pharmapp.viewmodel
 
-import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.moviles.pharmapp.backend.repositories.BaseBackend
 import com.moviles.pharmapp.backend.repositories.RepoMedicines
 import com.moviles.pharmapp.model.Medication
 import com.moviles.pharmapp.network.Callback
 import com.moviles.pharmapp.network.FirestoreService
 import java.lang.Exception
 
-class MedicineViewModel: ViewModel(), BaseViewModel {
+class MedicineBackend: ViewModel(),
+    BaseBackend {
 
 
     val firestoreService = FirestoreService()
