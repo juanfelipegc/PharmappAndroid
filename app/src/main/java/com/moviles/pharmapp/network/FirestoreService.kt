@@ -28,7 +28,7 @@ class FirestoreService {
             }
     }
 
-    fun getUserMedicine(callback: Callback<List<Medication>>) {
+    fun getUserMedicine(callback: Callback<MutableList<Medication>>) {
 
         firebaseFirestore.collection("users/dummyUser/medicine")
             .get()

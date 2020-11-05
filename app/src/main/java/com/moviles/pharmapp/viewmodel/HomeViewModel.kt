@@ -31,11 +31,12 @@ class HomeViewModel: ViewModel(), BaseBackend {
     }
 
     override fun falla(etiqueta: String?) {
-        TODO("Not yet implemented")
+        print(etiqueta)
     }
 
     override fun actualizacion(etiqueta: String?, objeto: Any?) {
-        TODO("Not yet implemented")
+        val user: User = objeto as User
+        liveUser.postValue(user)
     }
 
 

@@ -233,18 +233,18 @@ class ScannerFragment: Fragment(){
 
                             if (!code.isEmpty()) {
 
-                                val medicine = viewModel.findMedicine(code)
-
-                                Log.i("Medicina",medicine.name+"SCANEEEEEER")
-
-                                if (!medicine.name.equals("")) {
-
-                                    val bundle = bundleOf("medicine" to medicine)
-
-                                    findNavController().navigate(R.id.AddMedicineDetailFragmentDialog,bundle)
-
-                                    stopCamera()
-                                }
+//                                val medicine = viewModel.findMedicine(code)
+//
+//                                Log.i("Medicina",medicine.name+"SCANEEEEEER")
+//
+//                                if (!medicine.name.equals("")) {
+//
+//                                    val bundle = bundleOf("medicine" to medicine)
+//
+//                                    findNavController().navigate(R.id.AddMedicineDetailFragmentDialog,bundle)
+//
+//                                    stopCamera()
+//                                }
 
                             }
                             when (valueType) {

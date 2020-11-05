@@ -99,12 +99,12 @@ class MedicineBackend: ViewModel(),
     /**
      * adds Object to Firebase Collection
      */
-    fun addMedicine(code: String) {
+    fun addMedicine(code: Medication) {
 
 
         var medicationx = Medication()
 
-        medicationx.id=code
+        medicationx.id=code.id
         medicationx.image=""
         medicationx.tag="N/A"
         medicationx.name="Medicine added"
