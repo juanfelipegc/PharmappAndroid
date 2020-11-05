@@ -206,7 +206,7 @@ class ScannerFragment: Fragment(){
 
                 val scanner = BarcodeScanning.getClient()
 
-                val result = scanner.process(image)
+                scanner.process(image)
                     .addOnSuccessListener { barcodes ->
                         // Task completed successfully
                         // ...
