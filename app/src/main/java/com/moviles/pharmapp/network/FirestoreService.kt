@@ -28,15 +28,23 @@ class FirestoreService {
             }
     }
 
-    fun getUserMedicine(callback: Callback<MutableList<Medication>>) {
+    fun getUserMedicine(callback: Callback<List<Medication>>) {
 
         firebaseFirestore.collection("users/dummyUser/medicine")
-            .get()
-            .addOnSuccessListener { result ->
-                for (doc in result){
+            .addSnapshotListener { result, e ->
+                if (e != null) {
+                    Log.w("Listener", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+
+                if (result != null) {
+                    for (doc in result){
                     val list = result.toObjects(Medication::class.java)
                     callback.onSucces(list)
                     break
+                }
+                } else {
+                    Log.d("Null data", "Current data: null")
                 }
             }
     }

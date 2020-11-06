@@ -8,8 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.activities.SplashActivity"
-    android:background="@color/colorPrimaryDark">
+    tools:context=".view.ui.activities.SplashActivity">
 
 
 
@@ -18,7 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/splash"
-        android:scaleType="fitXY"/>
+        android:layout_marginHorizontal="20dp"
+        android:scaleType="fitCenter"/>
+
 
 
 

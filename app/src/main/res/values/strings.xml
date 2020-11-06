@@ -2,7 +2,7 @@
     <string name="app_name">Pharmapp</string>
     <string name="cancel">Cancel</string>
     <string name="next">Next</string>
-    <string name="choseMed">Choose medicine</string>
+    <string name="choseMed">Your medicines</string>
     <string name="hello">Hello,</string>
     <string name="userName">Amanda</string>
     <string name="gotSick">Got Sick?</string>
@@ -40,5 +40,4 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
-
 </resources>

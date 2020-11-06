@@ -19,13 +19,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.moviles.pharmapp.R
-import com.moviles.pharmapp.viewmodel.MedicineBackend
 import java.io.File
 import java.util.concurrent.ExecutorService
 import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
+import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import kotlinx.android.synthetic.main.fragment_scanner.*
 import kotlinx.android.synthetic.main.fragment_scanner.view.*
 import java.util.concurrent.Executors
@@ -45,7 +45,7 @@ class ScannerFragment: Fragment(){
     private lateinit var cameraExecutor: ExecutorService
 
 
-    private lateinit var viewModel: MedicineBackend
+    private lateinit var viewModel: MedicineViewModel
 
 
 
@@ -100,7 +100,7 @@ class ScannerFragment: Fragment(){
         var view =inflater.inflate(R.layout.fragment_scanner, container, false)
 
         tvAction = view.tvCode
-        viewModel = ViewModelProvider(this).get(MedicineBackend::class.java)
+        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -206,7 +206,7 @@ class ScannerFragment: Fragment(){
 
                 val scanner = BarcodeScanning.getClient()
 
-                val result = scanner.process(image)
+                scanner.process(image)
                     .addOnSuccessListener { barcodes ->
                         // Task completed successfully
                         // ...
@@ -233,18 +233,18 @@ class ScannerFragment: Fragment(){
 
                             if (!code.isEmpty()) {
 
-//                                val medicine = viewModel.findMedicine(code)
-//
-//                                Log.i("Medicina",medicine.name+"SCANEEEEEER")
-//
-//                                if (!medicine.name.equals("")) {
-//
-//                                    val bundle = bundleOf("medicine" to medicine)
-//
-//                                    findNavController().navigate(R.id.AddMedicineDetailFragmentDialog,bundle)
-//
-//                                    stopCamera()
-//                                }
+                                val medicine = viewModel.findMedicine(code)
+
+                                Log.i("Medicina",medicine.name+"SCANEEEEEER")
+
+                                if (!medicine.name.equals("")) {
+
+                                    val bundle = bundleOf("medicine" to medicine)
+
+                                    findNavController().navigate(R.id.AddMedicineDetailFragmentDialog,bundle)
+
+                                    stopCamera()
+                                }
 
                             }
                             when (valueType) {

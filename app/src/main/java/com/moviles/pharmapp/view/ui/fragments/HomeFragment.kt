@@ -14,7 +14,6 @@ import com.moviles.pharmapp.model.User
 import com.moviles.pharmapp.view.adapter.CalendarAdapter
 import com.moviles.pharmapp.view.adapter.MedicationAdapter
 import com.moviles.pharmapp.viewmodel.HomeViewModel
-import com.moviles.pharmapp.viewmodel.MedicineBackend
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment: Fragment() {

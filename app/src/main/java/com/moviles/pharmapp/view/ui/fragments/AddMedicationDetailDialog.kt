@@ -12,14 +12,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.moviles.pharmapp.R
 import com.moviles.pharmapp.model.Medication
-import com.moviles.pharmapp.viewmodel.MedicineBackend
+import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import kotlinx.android.synthetic.main.fragment_add_medicine_detail_dialog.*
 import kotlinx.android.synthetic.main.fragment_add_medicine_detail_dialog.view.*
 
 class AddMedicationDetailDialog: DialogFragment() {
 
 
-    private lateinit var viewModel: MedicineBackend
+    private lateinit var viewModel: MedicineViewModel
 
     var medicine = Medication()
 
@@ -38,7 +38,7 @@ class AddMedicationDetailDialog: DialogFragment() {
         var addBtn = view.addMedBtn
 
 
-        viewModel = ViewModelProvider(this).get(MedicineBackend::class.java)
+        viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
         medicine = arguments?.getSerializable("medicine") as Medication
 
         addBtn.setOnClickListener {

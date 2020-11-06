@@ -16,16 +16,14 @@ class MainActivity : AppCompatActivity() {
 
 
     fun configNav(){
-
         NavigationUI.setupWithNavController(bottom_navigation, Navigation.findNavController(this,
             R.id.fragContainer
         ))
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         configNav()
     }
-
-
 }
