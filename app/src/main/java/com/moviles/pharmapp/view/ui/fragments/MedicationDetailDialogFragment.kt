@@ -42,7 +42,7 @@ class MedicationDetailDialogFragment: DialogFragment() {
         tvMedicationInfo.text = medicine.description
 
         Glide.with(this)
-            .load(R.drawable.ic_medicina)
+            .load(R.drawable.ic_medicina_negro)
             .apply(RequestOptions.circleCropTransform())
             .into(ivPictureMedicine)
 

@@ -8,5 +8,5 @@ class User: BaseModel() {
     var city = ""
     var insurance = ""
     var password = ""
-
+    var gender = ""
 }

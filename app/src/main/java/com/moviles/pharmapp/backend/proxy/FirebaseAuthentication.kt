@@ -31,7 +31,11 @@ class FirebaseAuthentication(val activity: AppCompatActivity) : BaseProxy(activi
                         listener.falla(Constants.Errors.AUTH_ERROR)
                     } else {
                         val user = mAuth.getCurrentUser()
-                        listener.exito(label, user)
+                        if (user != null) {
+                            listener.exito(label, user.uid)
+                        }
+                        else
+                            listener.falla(Constants.Errors.AUTH_ERROR)
                     }
                 })
     }

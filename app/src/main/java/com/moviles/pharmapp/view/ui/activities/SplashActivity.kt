@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.moviles.pharmapp.R
 import kotlinx.android.synthetic.main.activity_splash.*
-import kotlinx.android.synthetic.main.item_medication.*
 
-class SplashActivity: AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +19,11 @@ class SplashActivity: AppCompatActivity() {
 
         val animation = AnimationUtils.loadAnimation(this, R.anim.animation)
         ivLogoPharmapp.startAnimation(animation)
-
-        val intent = Intent(this, RegisterActivity::class.java)
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val intent = if (currentUser == null)
+            Intent(this, RegisterActivity::class.java)
+        else
+            Intent(this, MainActivity::class.java)
         animation.setAnimationListener(object : Animation.AnimationListener {
             /**
              *

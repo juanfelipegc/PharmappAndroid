@@ -3,15 +3,15 @@ package com.moviles.pharmapp.backend.proxy
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.NetworkInfo
 import androidx.core.content.ContextCompat.getSystemService
 
-open class BaseProxy(context: Context) {
-
-    val connectivityManager = context.getSystemService(ConnectivityManager::class.java)
-    val currentNetwork = connectivityManager.getActiveNetwork()
-    val caps = connectivityManager.getNetworkCapabilities(currentNetwork)
+open class BaseProxy(val context: Context) {
 
     fun checkInternetConnection(): Boolean {
-        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+        return isConnected
     }
 }

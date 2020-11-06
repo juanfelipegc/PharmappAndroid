@@ -69,7 +69,7 @@ class FirebaseDB {
 
     fun addDocument(
         rutaDocumento: Map<String, String?>,
-        nuevoDoc: Map<String?, Any?>?,
+        nuevoDoc: Map<String?, Any?>,
         listener: BaseBackend,
         etiqueta: String?,
         clase: Any?
@@ -83,7 +83,7 @@ class FirebaseDB {
         val rFinal = ruta.substring(0, ruta.length - 1)
         val listaDocumento =
             firebase.document(rFinal)
-        listaDocumento.set(nuevoDoc!!).addOnSuccessListener { listener.exito(etiqueta, clase) }
+        listaDocumento.set(nuevoDoc).addOnSuccessListener { listener.exito(etiqueta, clase) }
             .addOnFailureListener { listener.falla(etiqueta) }
     }
 
