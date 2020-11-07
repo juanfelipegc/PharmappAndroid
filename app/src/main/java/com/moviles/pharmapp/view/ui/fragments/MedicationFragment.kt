@@ -68,8 +68,9 @@ class MedicationFragment: Fragment(),
             }
         })
         viewModel.isLoading.observe(viewLifecycleOwner,Observer<Boolean> {
-            if(it!=null)
-                rlBase.visibility = View.INVISIBLE
+            if(it!=null) {
+                rlBase.visibility = View.INVISIBLE}
+
         })
     }
 

@@ -1,9 +1,11 @@
 package com.moviles.pharmapp.view.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.moviles.pharmapp.model.Medication
@@ -20,6 +22,8 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
         val ivMedication = itemView.findViewById<ImageView>(R.id.ivItemMedicationimage)
         val tvMedicationName = itemView.findViewById<TextView>(R.id.tvItemMedicationName)
         val tvMedicationTag = itemView.findViewById<TextView>(R.id.tvItemMedicationTag)
+
+        val lHolder = itemView.findViewById<LinearLayout>(R.id.lHolder)
 
     }
 
@@ -53,7 +57,7 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
 
         holder.tvMedicationName.text = medicine.name
         holder.tvMedicationTag.text = medicine.tag
-
+        //holder.lHolder.setBackgroundColor(Color.parseColor("#3461CF"))
         holder.itemView.setOnClickListener {
             medicationListener.onMedicineClicked(medicine,position)
         }

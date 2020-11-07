@@ -19,6 +19,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
     val repoMedicines: RepoMedicines = RepoMedicines()
     var listm: MutableList<Medication> = mutableListOf()
     var medicine = Medication()
+    lateinit var userMail: String
 
 
     fun refresh() {
@@ -30,7 +31,8 @@ class MedicineViewModel : ViewModel(), BaseBackend {
 
     fun refreshUserMedicines() {
 
-        getUserMedicineFromFireBase()
+        getUser()
+        getUserMedicineFromFireBase(userMail)
     }
 
     fun findMedicine(code: String): Medication {
@@ -53,24 +55,37 @@ class MedicineViewModel : ViewModel(), BaseBackend {
             }
 
 
+            override fun onFailedMsg() {
+                processFinished()
+            }
+
+
         })
 
         Log.i("Medicina", medicine.name)
         return medicine
     }
 
-    fun getUserMedicineFromFireBase() {
+    fun getUserMedicineFromFireBase(userMail: String) {
 
-        firestoreService.getUserMedicine(object : Callback<List<Medication>> {
+        firestoreService.getUserMedicine(userMail, object : Callback<List<Medication>> {
             override fun onSucces(result: List<Medication>?) {
+
 
                 listMedicine.postValue(result)
                 processFinished()
+
             }
 
             override fun onFailed(exception: Exception) {
                 processFinished()
             }
+
+            override fun onFailedMsg() {
+                processFinished()
+            }
+
+
         })
 
     }
@@ -82,6 +97,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
 
     override fun stopListener() {
 
+       userMail = firestoreService.getUser().toString()
     }
 
     /**
@@ -90,7 +106,8 @@ class MedicineViewModel : ViewModel(), BaseBackend {
     fun addMedicine(medicine: Medication) {
 
 
-        firestoreService.addUserMedicine(medicine)
+        getUser()
+        firestoreService.addUserMedicine(userMail, medicine)
         refresh()
 
 
@@ -106,7 +123,18 @@ class MedicineViewModel : ViewModel(), BaseBackend {
             override fun onFailed(exception: Exception) {
                 processFinished()
             }
+
+
+            override fun onFailedMsg() {
+                TODO("Not yet implemented")
+            }
         })
+    }
+
+    fun getUser() {
+
+         userMail = firestoreService.getUser().toString()
+
     }
 
     override fun exito(etiqueta: String?, objeto: Any?) {
