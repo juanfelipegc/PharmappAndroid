@@ -6,8 +6,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.moviles.pharmapp.R
+import com.moviles.pharmapp.model.Calendar
+import com.moviles.pharmapp.model.Medication
+import com.moviles.pharmapp.model.MedicineInCalendar
+import com.moviles.pharmapp.model.User
 
 class CalendarItemAdapter: RecyclerView.Adapter<CalendarItemAdapter.ViewHolder>() {
+
+    var listMedicine = ArrayList<MedicineInCalendar>()
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val timeStamp2Text = itemView.findViewById<TextView>(R.id.timeStamp2Text)
+        val drug = itemView.findViewById<TextView>(R.id.drugs)
+        val tvVitamins = itemView.findViewById<TextView>(R.id.vitamins)
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -19,21 +31,27 @@ class CalendarItemAdapter: RecyclerView.Adapter<CalendarItemAdapter.ViewHolder>(
             false)
     )
 
+    fun updateData(data: List<MedicineInCalendar>) {
+
+        listMedicine.clear()
+        listMedicine.addAll(data)
+        notifyDataSetChanged()
+
+    }
+
 
     override fun getItemCount(): Int {
-        return 4 //Los medicamentos
+        return listMedicine.size //Los medicamentos
     }
 
     override fun onBindViewHolder(holder: CalendarItemAdapter.ViewHolder, position: Int) {
-        holder.timeStamp2Text.text = "12:30"
-        holder.gotSick.text = "Voltaren"
-        holder.tvVitamins.text = "Vitamins"
+
+        val medicine = listMedicine[position]
+
+        holder.timeStamp2Text.text = medicine.hours
+        holder.drug.text = medicine.name
+        holder.tvVitamins.text = medicine.tag
 
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val timeStamp2Text = itemView.findViewById<TextView>(R.id.timeStamp2Text)
-        val gotSick = itemView.findViewById<TextView>(R.id.drugs)
-        val tvVitamins = itemView.findViewById<TextView>(R.id.vitamins)
-    }
 }

@@ -26,7 +26,7 @@ class FirebaseDB {
         rutaDocumento: Map<String, String?>,
         valorModificar: Map<String?, Any?>?,
         listener: BaseBackend,
-        etiqueta: String?,
+        etiqueta: String,
         clase: Any?
     ) {
         var ruta = ""
@@ -71,7 +71,7 @@ class FirebaseDB {
         rutaDocumento: Map<String, String?>,
         nuevoDoc: Map<String?, Any?>,
         listener: BaseBackend,
-        etiqueta: String?,
+        etiqueta: String,
         clase: Any?
     ) {
         var ruta = ""
@@ -90,7 +90,7 @@ class FirebaseDB {
     fun deleteDocument(
         rutaDocumento: Map<String, String?>,
         listener: BaseBackend,
-        etiqueta: String?,
+        etiqueta: String,
         clase: Any?
     ) {
         var ruta = ""
@@ -109,7 +109,7 @@ class FirebaseDB {
     fun <T : BaseModel> getDocument(
         rutaDocumento: Map<String, String?>,
         listener: BaseBackend,
-        etiqueta: String?,
+        etiqueta: String,
         clase: KClass<T>
     ) {
         var ruta = ""
@@ -190,7 +190,7 @@ class FirebaseDB {
     fun <T : BaseModel?> getCollectionByField(
         rutaColeccion: Map<String, String?>,
         listener: BaseBackend,
-        etiqueta: String?,
+        etiqueta: String,
         clase: Class<T>?,
         campo: String?,
         valor: Any?

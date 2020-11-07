@@ -4,6 +4,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.moviles.pharmapp.model.Calendar
 import com.moviles.pharmapp.model.Medication
 
 
@@ -49,6 +50,27 @@ class FirestoreService {
                 } else {
 
                     callback.onFailedMsg()
+                    Log.d("Null data", "Current data: null")
+                }
+            }
+    }
+
+    fun getUserCalendar(callback: Callback<List<Calendar>>) {
+
+        firebaseFirestore.collection("users/dummyUser/calendar")
+            .addSnapshotListener { result, e ->
+                if (e != null) {
+                    Log.w("Listener", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+
+                if (result != null) {
+                    for (doc in result){
+                        val list = result.toObjects(Calendar::class.java)
+                        callback.onSucces(list)
+                        break
+                    }
+                } else {
                     Log.d("Null data", "Current data: null")
                 }
             }

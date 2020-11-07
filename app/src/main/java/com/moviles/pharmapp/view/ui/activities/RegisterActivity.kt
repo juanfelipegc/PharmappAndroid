@@ -134,7 +134,7 @@ class RegisterActivity : BaseActivity(),
         TODO("Not yet implemented")
     }
 
-    override fun exito(etiqueta: String?, objeto: Any?) {
+    override fun exito(etiqueta: String, objeto: Any?) {
         disappearProgressBar()
         if (etiqueta === "registro") {
             saveUserOnFirebase(objeto as String)
@@ -147,7 +147,7 @@ class RegisterActivity : BaseActivity(),
         }
     }
 
-    override fun falla(etiqueta: String?) {
+    override fun falla(etiqueta: String) {
         disappearProgressBar()
         if (etiqueta.equals(Constants.Errors.AUTH_ERROR))
             Toast.makeText(
@@ -165,7 +165,7 @@ class RegisterActivity : BaseActivity(),
         }
     }
 
-    override fun actualizacion(etiqueta: String?, objeto: Any?) {
+    override fun actualizacion(etiqueta: String, objeto: Any?) {
         TODO("Not yet implemented")
     }
 }

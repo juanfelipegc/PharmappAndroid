@@ -137,16 +137,16 @@ class MedicineViewModel : ViewModel(), BaseBackend {
 
     }
 
-    override fun exito(etiqueta: String?, objeto: Any?) {
+    override fun exito(etiqueta: String, objeto: Any?) {
         val listmed: MutableList<Medication> = objeto as MutableList<Medication>
         listMedicine.postValue(listmed)
     }
 
-    override fun falla(etiqueta: String?) {
+    override fun falla(etiqueta: String) {
 
     }
 
-    override fun actualizacion(etiqueta: String?, objeto: Any?) {
+    override fun actualizacion(etiqueta: String, objeto: Any?) {
         val listmed: MutableList<Medication> = objeto as MutableList<Medication>
         listMedicine.postValue(listmed)
     }

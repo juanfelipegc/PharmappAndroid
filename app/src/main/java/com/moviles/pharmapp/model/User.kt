@@ -1,6 +1,8 @@
 package com.moviles.pharmapp.model
 
-class User: BaseModel() {
+import java.io.Serializable
+
+class User: BaseModel(), Serializable {
 
     var name = ""
     var email = ""

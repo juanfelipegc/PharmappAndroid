@@ -14,7 +14,7 @@ class FirebaseAuthentication(val activity: AppCompatActivity) : BaseProxy(activi
 
     private lateinit var mAuth: FirebaseAuth
 
-    fun registerUser(usuario: User, listener: BaseBackend, label: String?) {
+    fun registerUser(usuario: User, listener: BaseBackend, label: String) {
         if (!checkInternetConnection()) {
             listener.falla(Constants.Errors.NO_INTERNET)
             return

@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.moviles.pharmapp.R
+import com.moviles.pharmapp.model.Calendar
 import com.moviles.pharmapp.model.User
 import com.moviles.pharmapp.view.adapter.CalendarAdapter
 import com.moviles.pharmapp.view.ui.activities.LoginActivity
@@ -57,7 +58,7 @@ class HomeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val user = FirebaseAuth.getInstance().uid
         calendarAdpater = CalendarAdapter()
         recycler_calendar.apply {
             val linear = LinearLayoutManager(context)
@@ -79,6 +80,11 @@ class HomeFragment: Fragment() {
         viewModel.liveUser.observe(viewLifecycleOwner, Observer<User> { user ->
             user.let {
                 userName.text = user.name
+            }
+        })
+        viewModel.liveCalendar.observe(viewLifecycleOwner, Observer<List<Calendar>> { calendar ->
+            calendar.let {
+                calendarAdpater.updateData(calendar)
             }
         })
     }

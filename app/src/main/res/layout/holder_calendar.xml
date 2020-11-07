@@ -35,8 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Today"
         android:textStyle="bold"
+        android:textColor="@color/colorStringBlack"
         app:layout_constraintStart_toEndOf="@+id/circle"
         app:layout_constraintTop_toTopOf="@+id/circle" />
 
@@ -45,8 +47,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="2 times"
         android:textSize="10sp"
+        android:textColor="@color/colorStringBlack"
         app:layout_constraintEnd_toEndOf="@+id/tvDay"
         app:layout_constraintStart_toStartOf="@+id/tvDay"
         app:layout_constraintTop_toBottomOf="@+id/tvDay" />

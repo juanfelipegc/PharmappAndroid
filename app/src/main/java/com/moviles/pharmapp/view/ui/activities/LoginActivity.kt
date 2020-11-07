@@ -53,7 +53,7 @@ class LoginActivity : BaseActivity(), BaseBackend {
         TODO("Not yet implemented")
     }
 
-    override fun exito(etiqueta: String?, objeto: Any?) {
+    override fun exito(etiqueta: String, objeto: Any?) {
         disappearProgressBar()
         if (etiqueta === "login") {
             val intent = Intent(this, MainActivity::class.java)
@@ -62,7 +62,7 @@ class LoginActivity : BaseActivity(), BaseBackend {
         }
     }
 
-    override fun falla(etiqueta: String?) {
+    override fun falla(etiqueta: String) {
         disappearProgressBar()
         if (etiqueta.equals(Constants.Errors.EMAIL_UNKNOWN))
             Toast.makeText(
@@ -78,7 +78,7 @@ class LoginActivity : BaseActivity(), BaseBackend {
             ).show()
     }
 
-    override fun actualizacion(etiqueta: String?, objeto: Any?) {
+    override fun actualizacion(etiqueta: String, objeto: Any?) {
         TODO("Not yet implemented")
     }
 }
