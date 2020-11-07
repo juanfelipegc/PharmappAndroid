@@ -54,3 +54,11 @@ com.google.firebase:firebase-bom:25.12.0
 com.google.firebase:firebase-firestore-ktx
 com.google.firebase:firebase-storage-ktx
 com.google.firebase:firebase-analytics-ktx
+
+The app has the functionality to scan the barcodes in different medication boxes, the medications and its respective barcode accepted right now are the following:
+
+Ibuprofeno+metocarbamol - 7702605102716
+Ibuprofeno - 7702605401710
+Acetaminofén - 7707193640282
+Lágrimas Artificiales - 7709482273300
+Voltaren - 7896261005211
