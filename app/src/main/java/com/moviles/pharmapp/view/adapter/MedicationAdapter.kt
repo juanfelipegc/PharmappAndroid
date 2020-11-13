@@ -1,6 +1,7 @@
 package com.moviles.pharmapp.view.adapter
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,9 +56,26 @@ class MedicationAdapter (val medicationListener: MedicationListener): RecyclerVi
             .apply(RequestOptions.circleCropTransform())
             .into(holder.ivMedication)
 
+
+        Log.w("cruce", "antes del cruce")
+        Log.w("cruce", medicine.warning.size.toString())
+        for (i in medicine.warning) {
+
+            Log.w("cruce", i)
+            for (j in listMedicine) {
+
+                Log.w("cruce", j.id)
+                if (i == j.id) {
+
+
+                    holder.lHolder.setBackgroundColor(Color.parseColor("#3461CF"))
+                    holder.itemView.setBackgroundColor(Color.parseColor("#3461CF"))
+                }
+            }
+        }
         holder.tvMedicationName.text = medicine.name
         holder.tvMedicationTag.text = medicine.tag
-        //holder.lHolder.setBackgroundColor(Color.parseColor("#3461CF"))
+
         holder.itemView.setOnClickListener {
             medicationListener.onMedicineClicked(medicine,position)
         }

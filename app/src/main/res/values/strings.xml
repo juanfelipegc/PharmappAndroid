@@ -51,4 +51,15 @@
         <item>Santa Marta</item>
         <item>Cartagena</item>
     </string-array>
+
+
+    <string name="dialogTitleScannerNotFound">Not found</string>
+    <string name="dialogMessageScannerNotFound">Sorry we did not find your medicine in our database </string>
+
+    <string name="dialoTitlegNoInternet">No internet</string>
+    <string name="dialogMessageNoInternet">No Internet coonection found.\nsome features might not work properly please check internet connection.\nwe will try to get information locally</string>
+
+
+    <string name="dialoTitlegInternet">INTERNET CONNECTION: OK</string>
+    <string name="dialogMessageInternet">Enjoy full functionalities</string>
 </resources>

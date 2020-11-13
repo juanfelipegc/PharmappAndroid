@@ -1,6 +1,10 @@
 package com.moviles.pharmapp.view.ui.fragments
 
+import android.app.AlertDialog
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +12,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.moviles.pharmapp.R
 import com.moviles.pharmapp.model.Medication
+import com.moviles.pharmapp.network.ConnectionReceiver
+import com.moviles.pharmapp.network.MyApplication
 import com.moviles.pharmapp.view.adapter.MedicationAdapter
 import com.moviles.pharmapp.view.adapter.MedicationListener
 import com.moviles.pharmapp.viewmodel.MedicineViewModel
@@ -32,6 +39,9 @@ class MedicationFragment: Fragment(),
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
+
 
         var view =inflater.inflate(R.layout.fragment_medication, container, false)
 

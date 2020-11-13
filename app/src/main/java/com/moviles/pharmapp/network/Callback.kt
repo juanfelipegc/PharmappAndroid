@@ -9,7 +9,7 @@ interface Callback<T> {
 
     fun onFailed(exception: Exception)
 
-    fun onFailedMsg()
+    fun onFailedMsg(msg: String)
 
 
 

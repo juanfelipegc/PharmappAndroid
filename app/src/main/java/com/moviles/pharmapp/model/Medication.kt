@@ -9,5 +9,6 @@ class Medication :  BaseModel(), Serializable {
     var id = ""
     var image = ""
     var description = ""
+    var warning = arrayListOf<String>()
 
 }

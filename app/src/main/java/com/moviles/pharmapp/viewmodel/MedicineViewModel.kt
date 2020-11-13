@@ -55,7 +55,8 @@ class MedicineViewModel : ViewModel(), BaseBackend {
             }
 
 
-            override fun onFailedMsg() {
+            override fun onFailedMsg(msg: String) {
+
                 processFinished()
             }
 
@@ -81,7 +82,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
                 processFinished()
             }
 
-            override fun onFailedMsg() {
+            override fun onFailedMsg(msg: String) {
                 processFinished()
             }
 
@@ -125,7 +126,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
             }
 
 
-            override fun onFailedMsg() {
+            override fun onFailedMsg(msg: String) {
                 TODO("Not yet implemented")
             }
         })

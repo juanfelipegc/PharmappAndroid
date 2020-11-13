@@ -34,7 +34,7 @@ class FirestoreService {
 
     fun getUserMedicine(userId: String, callback: Callback<List<Medication>>) {
 
-        firebaseFirestore.collection("users/$userId/medicine")
+        firebaseFirestore.collection("users/$userId/medicine").orderBy("name")
             .addSnapshotListener { result, e ->
                 if (e != null) {
                     Log.w("Listener", "Listen failed.", e)
@@ -44,37 +44,22 @@ class FirestoreService {
                 if (result != null && !result.isEmpty) {
                     for (doc in result){
                     val list = result.toObjects(Medication::class.java)
+
+                    Log.w("cruce",list[0].warning.isEmpty().toString())
+
+                        Log.w("cruce",list[0].name)
                     callback.onSucces(list)
                     break
                 }
                 } else {
 
-                    callback.onFailedMsg()
+                    callback.onFailedMsg("Medicine not found")
                     Log.d("Null data", "Current data: null")
                 }
             }
     }
 
-    fun getUserCalendar(callback: Callback<List<Calendar>>) {
 
-        firebaseFirestore.collection("users/dummyUser/calendar")
-            .addSnapshotListener { result, e ->
-                if (e != null) {
-                    Log.w("Listener", "Listen failed.", e)
-                    return@addSnapshotListener
-                }
-
-                if (result != null) {
-                    for (doc in result){
-                        val list = result.toObjects(Calendar::class.java)
-                        callback.onSucces(list)
-                        break
-                    }
-                } else {
-                    Log.d("Null data", "Current data: null")
-                }
-            }
-    }
 
     fun findMedicine( medId: String, callback: Callback<Medication>) {
 
@@ -83,6 +68,8 @@ class FirestoreService {
             .addOnSuccessListener { result ->
                 val medicine = result.toObject(Medication::class.java)
                 if (medicine==null){
+
+                    callback.onFailedMsg("Medicine not found in our DataBase")
 
                     Log.i("Medicina","Consulta null")
                 }
@@ -111,6 +98,7 @@ class FirestoreService {
             }
 
     }
+
 
 
     fun getUser(): String? {
@@ -142,6 +130,27 @@ class FirestoreService {
 
 
         return uid
+    }
+
+    fun getUserCalendar(callback: Callback<List<Calendar>>) {
+
+        firebaseFirestore.collection("users/dummyUser/calendar")
+            .addSnapshotListener { result, e ->
+                if (e != null) {
+                    Log.w("Listener", "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+
+                if (result != null) {
+                    for (doc in result){
+                        val list = result.toObjects(Calendar::class.java)
+                        callback.onSucces(list)
+                        break
+                    }
+                } else {
+                    Log.d("Null data", "Current data: null")
+                }
+            }
     }
 
 

@@ -1,9 +1,13 @@
 package com.moviles.pharmapp.view.ui.fragments
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.moviles.pharmapp.R
 import com.moviles.pharmapp.model.Calendar
 import com.moviles.pharmapp.model.User
+import com.moviles.pharmapp.network.ConnectionReceiver
+import com.moviles.pharmapp.network.MyApplication
 import com.moviles.pharmapp.view.adapter.CalendarAdapter
 import com.moviles.pharmapp.view.ui.activities.LoginActivity
 import com.moviles.pharmapp.view.ui.activities.MainActivity
@@ -88,6 +94,7 @@ class HomeFragment: Fragment() {
             }
         })
     }
+
 
 
 }

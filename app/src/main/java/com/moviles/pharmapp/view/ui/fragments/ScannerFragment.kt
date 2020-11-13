@@ -2,6 +2,8 @@ package com.moviles.pharmapp.view.ui.fragments
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -186,10 +188,10 @@ class ScannerFragment: Fragment(){
             .build()
 
 
+        var tries = 0
 
         @SuppressLint("UnsafeExperimentalUsageError")
         override fun analyze(imageProxy: ImageProxy) {
-
 
 
 
@@ -231,19 +233,48 @@ class ScannerFragment: Fragment(){
                                 tvCode.text = code
                             }
 
-                            if (!code.isEmpty()) {
+                            if (code.isNotEmpty()) {
 
                                 val medicine = viewModel.findMedicine(code)
 
-                                Log.i("Medicina",medicine.name+"SCANEEEEEER")
 
                                 if (!medicine.name.equals("")) {
 
+
+                                    Log.i("Medicina",medicine.name+"SCANEEEEEER")
                                     val bundle = bundleOf("medicine" to medicine)
 
                                     findNavController().navigate(R.id.AddMedicineDetailFragmentDialog,bundle)
 
                                     stopCamera()
+                                }
+
+                                if (medicine.name.equals("")) {
+                                    tries+=1
+                                    Log.i("MedicineNotFound",tries.toString())
+                                }
+                                if (medicine.name.equals("")&&tries>12) {
+
+                                    stopCamera()
+                                    val builder = AlertDialog.Builder(context)
+
+                                    builder.setTitle(R.string.dialogTitleScannerNotFound)
+                                    builder.setMessage(R.string.dialogMessageScannerNotFound)
+
+                                    builder.setNeutralButton("Ok") {DialogInterface, which ->
+
+                                        findNavController().navigate(R.id.medication_fragment)
+
+                                        Log.i("MedicineNotFound","Not found")
+                                    }
+
+                                    val alertDialog = builder.create()
+
+                                    alertDialog.show()
+
+                                    Log.i("Medicina",medicine.name+"SCANEEEEEER2")
+
+
                                 }
 
                             }

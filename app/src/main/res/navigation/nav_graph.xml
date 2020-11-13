@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_scanner_fragment_to_AddMedicineDetailFragmentDialog"
             app:destination="@id/AddMedicineDetailFragmentDialog" />
+        <action
+            android:id="@+id/action_scanner_fragment_to_medication_fragment"
+            app:destination="@id/medication_fragment" />
     </fragment>
 
     <dialog
