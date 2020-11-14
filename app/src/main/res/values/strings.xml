@@ -57,7 +57,7 @@
     <string name="dialogMessageScannerNotFound">Sorry we did not find your medicine in our database </string>
 
     <string name="dialoTitlegNoInternet">No internet</string>
-    <string name="dialogMessageNoInternet">No Internet coonection found.\nsome features might not work properly please check internet connection.\nwe will try to get information locally</string>
+    <string name="dialogMessageNoInternet">No Internet connection found.\nSome features might not work properly please check internet connection.\nWe will try to get information locally</string>
 
 
     <string name="dialoTitlegInternet">INTERNET CONNECTION: OK</string>

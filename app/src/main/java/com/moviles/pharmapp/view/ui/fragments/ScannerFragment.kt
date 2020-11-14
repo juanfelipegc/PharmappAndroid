@@ -3,7 +3,6 @@ package com.moviles.pharmapp.view.ui.fragments
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -18,18 +17,19 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.moviles.pharmapp.R
-import java.io.File
-import java.util.concurrent.ExecutorService
 import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
+import com.moviles.pharmapp.R
 import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import kotlinx.android.synthetic.main.fragment_scanner.*
 import kotlinx.android.synthetic.main.fragment_scanner.view.*
+import java.io.File
+import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 
@@ -111,6 +111,9 @@ class ScannerFragment: Fragment(){
             ActivityCompat.requestPermissions(
                 requireActivity(), ScannerFragment.REQUIRED_PERMISSIONS, ScannerFragment.REQUEST_CODE_PERMISSIONS
             )
+
+           recreate()
+
         }
 
         // Setup the listener for take photo button
@@ -121,6 +124,13 @@ class ScannerFragment: Fragment(){
         cameraExecutor = Executors.newSingleThreadExecutor()
 
         return view
+    }
+
+    fun recreate() {
+        val ft: FragmentTransaction = this.requireFragmentManager().beginTransaction()
+        ft.detach(this)
+        ft.attach(this)
+        ft.commit()
     }
 
     fun stopCamera() {
