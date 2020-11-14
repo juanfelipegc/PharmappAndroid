@@ -5,17 +5,18 @@
     <item
         android:id="@+id/home_fragment"
         android:enabled="true"
-        android:icon="@drawable/home_icon"
+        android:icon="@drawable/home"
         android:title="Home" />
+    <item
+        android:id="@+id/medication_fragment_user"
+        android:enabled="true"
+        android:icon="@drawable/user"
+        android:title="user"/>
+
     <item
         android:id="@+id/medication_fragment"
         android:enabled="true"
-        android:icon="@drawable/ic_pills"
-        android:title="pills"/>
-<!--    <item-->
-<!--        android:id="@+id/c"-->
-<!--        android:enabled="true"-->
-<!--        android:icon="@drawable/calendar_icon"-->
-<!--        android:title="calendar"/>-->
+        android:icon="@drawable/pill"
+        android:title="medicines"/>
 
 </menu>

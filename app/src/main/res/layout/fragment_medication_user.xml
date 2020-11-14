@@ -40,9 +40,11 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorGreenTexts"
         android:textStyle="bold"
-        android:text="@string/add_medicine"
+        android:text="@string/choseMed"
         android:textSize="30sp"
         android:layout_marginVertical="10dp"/>
+
+
 
     <LinearLayout
         android:id="@+id/filterBtns"
@@ -52,15 +54,19 @@
         android:layout_below="@+id/medListTitle"
         android:layout_marginVertical="25dp">
 
-
+        <Button
+            android:id="@+id/allMedsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan "
+            android:background="@drawable/buttons_rounded"/>
 
         <Button
             android:id="@+id/vitaminsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vitamins"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="120dp"
+            android:layout_marginHorizontal="45dp"
             android:background="@drawable/buttons_rounded"/>
 
         <Button

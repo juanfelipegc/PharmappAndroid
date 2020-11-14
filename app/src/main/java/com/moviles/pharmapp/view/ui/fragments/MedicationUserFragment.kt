@@ -18,8 +18,11 @@ import com.moviles.pharmapp.view.adapter.MedicationListener
 import com.moviles.pharmapp.viewmodel.MedicineViewModel
 import kotlinx.android.synthetic.main.fragment_medication.*
 import kotlinx.android.synthetic.main.fragment_medication.view.*
+import kotlinx.android.synthetic.main.fragment_medication_user.view.allMedsButton
+import kotlinx.android.synthetic.main.fragment_medication.view.medListTitle
+import kotlinx.android.synthetic.main.fragment_medication_user.view.*
 
-class MedicationFragment: Fragment(),
+class MedicationUserFragment: Fragment(),
     MedicationListener {
 
     private lateinit var medicineAdpater: MedicationAdapter
@@ -33,9 +36,17 @@ class MedicationFragment: Fragment(),
     ): View? {
         // Inflate the layout for this fragment
 
-        var view =inflater.inflate(R.layout.fragment_medication, container, false)
 
 
+
+        var view =inflater.inflate(R.layout.fragment_medication_user, container, false)
+
+        var addBtn = view.allMedsButton
+
+        addBtn.setOnClickListener {
+
+            findNavController().navigate(R.id.scanner_fragment)
+        }
         return view
     }
 
@@ -43,9 +54,14 @@ class MedicationFragment: Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(MedicineViewModel::class.java)
-        viewModel.getMedicine()
+        viewModel.refreshUserMedicines()
 
+        var name = viewModel.getUserMail().split("@")[0]
 
+        val str1 = "Welcome"
+        val str2 = "this are your medications"
+        val finalStr = "$str1 $name $str2"
+        view.medListTitle.text = finalStr
 
 
         medicineAdpater =
@@ -74,7 +90,7 @@ class MedicationFragment: Fragment(),
 
     override fun onMedicineClicked(medication: Medication, position: Int) {
         val bundle = bundleOf("medicine" to medication)
-        findNavController().navigate(R.id.AddMedicineDetailFragmentDialog, bundle)
+        findNavController().navigate(R.id.MedicineDetailFragmentDialog, bundle)
     }
 
 

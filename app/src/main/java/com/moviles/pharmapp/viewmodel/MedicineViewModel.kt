@@ -19,7 +19,8 @@ class MedicineViewModel : ViewModel(), BaseBackend {
     val repoMedicines: RepoMedicines = RepoMedicines()
     var listm: MutableList<Medication> = mutableListOf()
     var medicine = Medication()
-    lateinit var userMail: String
+    lateinit var userId: String
+
 
 
     fun refresh() {
@@ -32,7 +33,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
     fun refreshUserMedicines() {
 
         getUser()
-        getUserMedicineFromFireBase(userMail)
+        getUserMedicineFromFireBase(userId)
     }
 
     fun findMedicine(code: String): Medication {
@@ -98,7 +99,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
 
     override fun stopListener() {
 
-       userMail = firestoreService.getUser().toString()
+        userId = firestoreService.getUser().toString()
     }
 
     /**
@@ -108,7 +109,7 @@ class MedicineViewModel : ViewModel(), BaseBackend {
 
 
         getUser()
-        firestoreService.addUserMedicine(userMail, medicine)
+        firestoreService.addUserMedicine(userId, medicine)
         refresh()
 
 
@@ -132,9 +133,21 @@ class MedicineViewModel : ViewModel(), BaseBackend {
         })
     }
 
-    fun getUser() {
 
-         userMail = firestoreService.getUser().toString()
+
+    fun getUser(): String {
+
+        userId = firestoreService.getUser()?.uid.toString()
+
+        return userId
+
+    }
+
+    fun getUserMail(): String {
+
+        var userMail = firestoreService.getUser()?.email.toString()
+
+        return userMail
 
     }
 

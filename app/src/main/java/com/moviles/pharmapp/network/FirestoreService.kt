@@ -2,6 +2,7 @@ package com.moviles.pharmapp.network
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.moviles.pharmapp.model.Calendar
@@ -101,7 +102,7 @@ class FirestoreService {
 
 
 
-    fun getUser(): String? {
+    fun getUser(): FirebaseUser? {
 
 
         var name = ""
@@ -129,7 +130,7 @@ class FirestoreService {
         }
 
 
-        return uid
+        return user
     }
 
     fun getUserCalendar(callback: Callback<List<Calendar>>) {

@@ -46,7 +46,7 @@ class AddMedicationDetailDialog: DialogFragment() {
 
 
             viewModel.addMedicine(medicine)
-            findNavController().navigate(R.id.medication_fragment)
+            findNavController().navigate(R.id.medication_fragment_user)
         }
 
         return view

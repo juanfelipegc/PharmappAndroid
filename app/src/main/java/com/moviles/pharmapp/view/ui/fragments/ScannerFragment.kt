@@ -273,7 +273,7 @@ class ScannerFragment: Fragment(){
 
                                     builder.setNeutralButton("Ok") {DialogInterface, which ->
 
-                                        findNavController().navigate(R.id.medication_fragment)
+                                        findNavController().navigate(R.id.medication_fragment_user)
 
                                         Log.i("MedicineNotFound","Not found")
                                     }

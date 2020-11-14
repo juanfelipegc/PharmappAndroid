@@ -12,20 +12,30 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_medication_fragment_to_MedicationFragment"
-            app:destination="@id/medication_fragment" />
+            app:destination="@id/medication_fragment_user" />
     </fragment>
 
     <fragment
-        android:id="@+id/medication_fragment"
-        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationFragment"
+        android:id="@+id/medication_fragment_user"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationUserFragment"
         android:label="fragment_medication"
-        tools:layout="@layout/fragment_medication" >
+        tools:layout="@layout/fragment_medication_user" >
         <action
             android:id="@+id/action_medication_fragment_to_MedicineDetailFragmentDialog"
             app:destination="@id/MedicineDetailFragmentDialog" />
         <action
             android:id="@+id/action_medication_fragment_to_scanner_fragment"
             app:destination="@id/scanner_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medication_fragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationFragment"
+        android:label="fragment_medication"
+        tools:layout="@layout/fragment_medication">
+
+        <action
+            android:id="@+id/action_medication_fragment_to_AddMedicineDetailFragmentDialog"
+            app:destination="@id/AddMedicineDetailFragmentDialog" />
     </fragment>
 
     <fragment
@@ -39,7 +49,7 @@
             app:destination="@id/AddMedicineDetailFragmentDialog" />
         <action
             android:id="@+id/action_scanner_fragment_to_medication_fragment"
-            app:destination="@id/medication_fragment" />
+            app:destination="@id/medication_fragment_user" />
     </fragment>
 
     <dialog
@@ -49,11 +59,8 @@
         tools:layout="@layout/fragment_add_medicine_detail_dialog">
         <action
             android:id="@+id/action_AddMedicineDetailFragmentDialog_to_medication_fragment"
-            app:destination="@id/medication_fragment" />
+            app:destination="@id/medication_fragment_user" />
     </dialog>
-
-
-
 
     <dialog
         android:id="@+id/MedicineDetailFragmentDialog"
