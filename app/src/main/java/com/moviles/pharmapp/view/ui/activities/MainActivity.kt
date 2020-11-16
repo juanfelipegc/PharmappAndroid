@@ -3,9 +3,11 @@ package com.moviles.pharmapp.view.ui.activities
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
+import android.util.LruCache
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
@@ -20,6 +22,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), HomeFragment.IHomeListener,ConnectionReceiver.ConnectionReceiverListener {
 
+    lateinit var memoryCache: LruCache<String, Bitmap>
+
     fun configNav(){
         NavigationUI.setupWithNavController(bottom_navigation, Navigation.findNavController(this,
             R.id.fragContainer
@@ -33,6 +37,10 @@ class MainActivity : AppCompatActivity(), HomeFragment.IHomeListener,ConnectionR
 
         baseContext.registerReceiver(ConnectionReceiver(), IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
         MyApplication.instance.setConnectionListener(this)
+        var maxMemory = (Runtime.getRuntime().maxMemory()/1024);
+        var cacheSize = maxMemory/8;
+        memoryCache = LruCache<String, Bitmap>(1024)
+
     }
 
     override fun onPause() {
@@ -94,6 +102,4 @@ class MainActivity : AppCompatActivity(), HomeFragment.IHomeListener,ConnectionR
             Log.i("NetworkInfo","Not  Connected")
         }
     }
-
-
 }
