@@ -102,4 +102,6 @@ class MainActivity : AppCompatActivity(), HomeFragment.IHomeListener,ConnectionR
             Log.i("NetworkInfo","Not  Connected")
         }
     }
+
+
 }
