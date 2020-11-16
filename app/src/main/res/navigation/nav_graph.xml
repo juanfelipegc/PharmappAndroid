@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.HomeFragment"
+        android:label="Test"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_medication_fragment_to_MedicationFragment"
+            app:destination="@id/medication_fragment_user" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/medication_fragment_user"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationUserFragment"
+        android:label="fragment_medication"
+        tools:layout="@layout/fragment_medication_user" >
+        <action
+            android:id="@+id/action_medication_fragment_to_MedicineDetailFragmentDialog"
+            app:destination="@id/MedicineDetailFragmentDialog" />
+        <action
+            android:id="@+id/action_medication_fragment_to_scanner_fragment"
+            app:destination="@id/scanner_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/medication_fragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationFragment"
+        android:label="fragment_medication"
+        tools:layout="@layout/fragment_medication">
+
+        <action
+            android:id="@+id/action_medication_fragment_to_AddMedicineDetailFragmentDialog"
+            app:destination="@id/AddMedicineDetailFragmentDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scanner_fragment"
+        android:name="com.moviles.pharmapp.view.ui.fragments.ScannerFragment"
+        android:label="fragment_scanner"
+        tools:layout="@layout/fragment_scanner"
+        >
+        <action
+            android:id="@+id/action_scanner_fragment_to_AddMedicineDetailFragmentDialog"
+            app:destination="@id/AddMedicineDetailFragmentDialog" />
+        <action
+            android:id="@+id/action_scanner_fragment_to_medication_fragment"
+            app:destination="@id/medication_fragment_user" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/AddMedicineDetailFragmentDialog"
+        android:name="com.moviles.pharmapp.view.ui.fragments.AddMedicationDetailDialog"
+        android:label="AddMedicineDetailFragmentDialog"
+        tools:layout="@layout/fragment_add_medicine_detail_dialog">
+        <action
+            android:id="@+id/action_AddMedicineDetailFragmentDialog_to_medication_fragment"
+            app:destination="@id/medication_fragment_user" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/MedicineDetailFragmentDialog"
+        android:name="com.moviles.pharmapp.view.ui.fragments.MedicationDetailDialogFragment"
+        android:label="MedicationDetailFragmentDialog"
+        tools:layout="@layout/fragment_medication_detail_dialog"/>
+</navigation>

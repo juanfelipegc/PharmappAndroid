@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@drawable/background_new">
+
+
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="@string/next"
+        android:textColor="@color/colorGreenTexts"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        style="?android:attr/borderlessButtonStyle"
+        />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textColor="@color/colorGreenTexts"
+        android:layout_marginVertical="10dp"
+        style="?android:attr/borderlessButtonStyle"/>
+
+    <TextView
+        android:id="@+id/medListTitle"
+        android:layout_below="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorGreenTexts"
+        android:textStyle="bold"
+        android:text="@string/add_medicine"
+        android:textSize="30sp"
+        android:layout_marginVertical="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/filterBtns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/medListTitle"
+        android:layout_marginVertical="25dp">
+
+
+
+        <Button
+            android:id="@+id/vitaminsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vitamins"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="120dp"
+            android:background="@drawable/buttons_rounded"/>
+
+        <Button
+            android:id="@+id/pillsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pills"
+            android:background="@drawable/buttons_rounded"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rvContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.ui.activities.MainActivity"
+        android:layout_below="@id/filterBtns">
+
+
+
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"
+            android:background="@drawable/searchview_rounded"
+            android:queryBackground="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMedicine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_medication"
+            android:scrollbars="vertical"/>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlBase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:alpha="0.5"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
+

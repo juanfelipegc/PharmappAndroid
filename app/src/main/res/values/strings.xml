@@ -1,3 +1,72 @@
 <resources>
     <string name="app_name">Pharmapp</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="choseMed">Your medicines</string>
+    <string name="hello">Hello,</string>
+    <string name="userName">Amanda</string>
+    <string name="gotSick">Got Sick?</string>
+    <string name="addDrugs">Add drugs</string>
+    <string name="vitamin1">Omega 3</string>
+    <string name="drug1">Advil</string>
+    <string name="time1">8:45</string>
+    <string name="time2">12:30</string>
+    <string name="date">Today</string>
+    <string name="date2">23 May</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut \n
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi  \n
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore  \n
+        mollit anim id est laborum.</string>
+    <string name="all">All</string>
+    <string name="vitamins">Vitamins</string>
+    <string name="med_name">Medication name</string>
+    <string name="pills">Pills</string>
+    <string name="tag">tag</string>
+    <string name="brief_description">Brief description</string>
+    <string name="info">Info</string>
+    <string name="time">Time</string>
+    <string name="edit">Edit</string>
+    <string name="medication_name">Medication name</string>
+    <string name="add_medicine">Add medicine</string>
+
+    <!--REGISTER AND LOGIN-->
+    <string name="create_account">Create account</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="email">Email</string>
+    <string name="insurance">Insurance</string>
+    <string-array name="gender">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="cities">
+        <item>Cities</item>
+        <item>Bogotá</item>
+        <item>Bucaramanga</item>
+        <item>Medellín</item>
+        <item>Pereira</item>
+        <item>Cali</item>
+        <item>Santa Marta</item>
+        <item>Cartagena</item>
+    </string-array>
+
+
+    <string name="dialogTitleScannerNotFound">Not found</string>
+    <string name="dialogMessageScannerNotFound">Sorry we did not find your medicine in our database </string>
+
+    <string name="dialoTitlegNoInternet">No internet</string>
+    <string name="dialogMessageNoInternet">No Internet connection found.\nSome features might not work properly please check internet connection.\nWe will try to get information locally</string>
+
+
+    <string name="dialoTitlegInternet">INTERNET CONNECTION: OK</string>
+    <string name="dialogMessageInternet">Enjoy full functionalities</string>
+
+    <string name="dialoTitlegRisk">WARMING: Interaction between medicines.</string>
+    <string name="dialogMessageRisk">This medicine you are trying to add have interactions with other medicines you are taking.\n Make sure you are following your doctors indications</string>
+
+    <string name="dialoTitlegAdd">Confirmation needed</string>
+    <string name="dialogMessageAdd">Are you sure you want to add this medicine?</string>
+
 </resources>
