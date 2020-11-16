@@ -72,7 +72,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:25.12.0')
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
-//    implementation 'com.google.firebase:firebase-functions:19.1.0'
+    implementation 'com.google.firebase:firebase-functions:19.1.0'
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
@@ -86,8 +86,4 @@ dependencies {
 
 
     implementation 'com.google.mlkit:barcode-scanning:16.0.3'
-
-
-
-
 }

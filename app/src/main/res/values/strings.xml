@@ -62,4 +62,11 @@
 
     <string name="dialoTitlegInternet">INTERNET CONNECTION: OK</string>
     <string name="dialogMessageInternet">Enjoy full functionalities</string>
+
+    <string name="dialoTitlegRisk">WARMING: Interaction between medicines.</string>
+    <string name="dialogMessageRisk">This medicine you are trying to add have interactions with other medicines you are taking.\n Make sure you are following your doctors indications</string>
+
+    <string name="dialoTitlegAdd">Confirmation needed</string>
+    <string name="dialogMessageAdd">Are you sure you want to add this medicine?</string>
+
 </resources>

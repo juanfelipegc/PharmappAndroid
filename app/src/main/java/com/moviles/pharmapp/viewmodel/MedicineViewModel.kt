@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 import com.moviles.pharmapp.backend.repositories.BaseBackend
 import com.moviles.pharmapp.backend.repositories.RepoMedicines
 import com.moviles.pharmapp.model.Medication
+import com.moviles.pharmapp.model.User
 import com.moviles.pharmapp.network.Callback
 import com.moviles.pharmapp.network.FirestoreService
 import java.lang.Exception
 
 class MedicineViewModel : ViewModel(), BaseBackend {
-
 
     val firestoreService = FirestoreService()
     var listMedicine: MutableLiveData<List<Medication>> = MutableLiveData()
@@ -20,14 +20,12 @@ class MedicineViewModel : ViewModel(), BaseBackend {
     var listm: MutableList<Medication> = mutableListOf()
     var medicine = Medication()
     lateinit var userId: String
-
-
+    var answer = String()
+    var liveinteractionRes: MutableLiveData<String> = MutableLiveData()
+    var liveMedicineAdded: MutableLiveData<String> = MutableLiveData()
 
     fun refresh() {
-
-
         repoMedicines.getAllMedicines(this, "Prueba")
-
     }
 
     fun refreshUserMedicines() {
@@ -68,6 +66,15 @@ class MedicineViewModel : ViewModel(), BaseBackend {
         return medicine
     }
 
+    fun x(s: String) {
+
+
+        answer = s
+        Log.i("FuncionSebas2",answer+"xxxx")
+
+    }
+
+
     fun getUserMedicineFromFireBase(userMail: String) {
 
         firestoreService.getUserMedicine(userMail, object : Callback<List<Medication>> {
@@ -106,13 +113,39 @@ class MedicineViewModel : ViewModel(), BaseBackend {
      * adds Object to Firebase Collection
      */
     fun addMedicine(medicine: Medication) {
+//        getUser()
+//        firestoreService.addUserMedicine(userId, medicine)
+        firestoreService.medInteractions(medicine.id, object : Callback<String> {
+            override fun onSucces(result: String?) {
+                liveinteractionRes.postValue(result)
+            }
+
+            override fun onFailed(exception: Exception) {
+            }
 
 
-        getUser()
-        firestoreService.addUserMedicine(userId, medicine)
+            override fun onFailedMsg(msg: String) {
+                TODO("Not yet implemented")
+            }
+        })
         refresh()
+    }
+
+    fun addMedicineRisky(medicine: Medication) {
+        firestoreService.addMedicine(medicine.id, object : Callback<String> {
+            override fun onSucces(result: String?) {
+                liveMedicineAdded.postValue(result)
+            }
+
+            override fun onFailed(exception: Exception) {
+            }
 
 
+            override fun onFailedMsg(msg: String) {
+                TODO("Not yet implemented")
+            }
+        })
+        refresh()
     }
 
     fun getMedicine() {
@@ -164,4 +197,8 @@ class MedicineViewModel : ViewModel(), BaseBackend {
         val listmed: MutableList<Medication> = objeto as MutableList<Medication>
         listMedicine.postValue(listmed)
     }
+
+
+
+
 }

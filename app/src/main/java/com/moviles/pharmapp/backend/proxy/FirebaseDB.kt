@@ -3,9 +3,11 @@ package com.moviles.pharmapp.backend.proxy
 import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.functions.FirebaseFunctions
 import com.moviles.pharmapp.model.BaseModel
 import com.moviles.pharmapp.utilities.Constants
 import com.moviles.pharmapp.backend.repositories.BaseBackend
@@ -18,8 +20,11 @@ class FirebaseDB {
     private val settings = FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).build()
     private var lr: ListenerRegistration? = null
 
+
+
     init {
         firebase.firestoreSettings = settings
+
     }
 
     fun <T : BaseModel?> updateValue(
@@ -243,4 +248,8 @@ class FirebaseDB {
             Log.e("Stop Listener", "Error stopping listeners")
         }
     }
+
+
+
+
 }
