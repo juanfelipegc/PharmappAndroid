@@ -8,6 +8,8 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.util.LruCache
+import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
