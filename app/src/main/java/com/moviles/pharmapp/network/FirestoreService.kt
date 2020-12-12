@@ -1,6 +1,8 @@
 package com.moviles.pharmapp.network
 
+import android.graphics.Bitmap
 import android.util.Log
+import android.util.LruCache
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,6 +16,7 @@ class FirestoreService {
 
     val firebaseFirestore = FirebaseFirestore.getInstance()
     val settings = FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).build()
+    var memoryCache = LruCache<String, FirebaseUser?>(1024)
 
     private lateinit var functions: FirebaseFunctions
 
@@ -110,29 +113,34 @@ class FirestoreService {
         var name = ""
         var email = ""
 
-        // The user's ID, unique to the Firebase project. Do NOT use this value to
-        // authenticate with your backend server, if you have one. Use
-        // FirebaseUser.getToken() instead.
-        var uid = ""
-        Log.i("usuario", "buscando user")
-        val user = FirebaseAuth.getInstance().currentUser
-        user?.let {
-            // Name, email address, and profile photo Url
-            name = user.displayName.toString()
-            email = user.email.toString()
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            uid = user.uid
-
-            Log.i("usuario", name + email + uid)
 
 
-        }
+        if (memoryCache.get("name")==null) {
+
+            var uid = ""
+            Log.i("usuario", "buscando user")
+            val user = FirebaseAuth.getInstance().currentUser
+            user?.let {
+                // Name, email address, and profile photo Url
+                name = user.displayName.toString()
+                email = user.email.toString()
 
 
-        return user
+                uid = user.uid
+
+                Log.i("usuario", name + email + uid)
+
+
+            }
+
+            memoryCache.put("name", user)
+
+            return user
+        } else
+
+            return memoryCache.get("name")
+
+
     }
 
     fun getUserCalendar(callback: Callback<List<Calendar>>) {
